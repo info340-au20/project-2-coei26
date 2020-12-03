@@ -1,2 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { NavBar } from './navigation/NavBar.js'
+
+function App() {
+    return (
+        <div>
+            <NavBar />
+        </div>
+    )
+}
+
+export default App;
