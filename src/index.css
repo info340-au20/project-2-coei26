@@ -1,21 +1,11 @@
 html, body {
-    min-height: 100%;
-    position: relative;
-}
-
-body {
-    font-family: 'Open Sans', Helvetica, sans-serif;
-    color:white;
+    width: 100%;
+    height: 100%;
     margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
 }
 
-header {
-	text-align: center;
-	width: 100%;
-    height: auto;
-}
-
-/* Set gradient background image for navbar. */
 .navbar {
     text-shadow: 0.5px 0.5px 0.5px #333;
     background-image: linear-gradient( 150deg,#4b2e83 10%, #b7a57a 90%);
@@ -26,8 +16,17 @@ header {
     margin-bottom: 30px;
 }
 
-/* Styling for "UW Undergraduate Advising" */
-.navbar .navbar-brand {
+li, a.mx-auto {
+    list-style-type: none;
+    color: WHITE;
+    font-family: 'Encode Sans', Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 900px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+li .navbar-brand {
     list-style-type: none;
     color: WHITE;
     font-family: 'Encode Sans', Helvetica, sans-serif;
@@ -37,7 +36,418 @@ header {
     margin-left: 10px;
 }
 
-/* Changes color of text when hovered on to indicate link to home page. */
-.navbar-brand:hover {
-    color: #b7a57a;
+.logo {
+    padding-right: 2em;
+    padding-left: 0.5em;
+    padding-top: 10em;
+    padding-bottom: 10em;
+    background-size: 50px;
+    background-position: left;
+    background-image: url('../src/img/UW-Logo.png');
+    background-repeat: no-repeat;
 }
+
+.img-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1000px;
+    margin-bottom: 10px;
+}
+
+/* Styling for intro and blurb. */
+.intro {
+    margin: 20px;
+}
+
+.intro h1, .blurb h1 {
+    color: #4b2e83;
+    font-family: 'Encode Sans', Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    margin-left: 20px;
+}
+
+
+.blurb > h1, h2, p {
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+.blurb h2 {
+    color:#b7a57a;
+    font-family:'Open Sans', Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: 1000;
+    line-height: 0.25em;
+}
+
+footer p, a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    bottom: 0;
+}
+
+.intro p, .blurb p {
+    color:#535353;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-size: 15px;
+    margin-left: 20px;
+}
+
+
+/* Styling for 3 pictures and text links. */
+.click {
+    margin-left: 20%;
+    position: relative;
+    text-align: center;
+    padding-left: 1%;
+}
+ 
+footer a {
+    color: white;
+}
+
+.click a {
+    position: absolute;
+    bottom: 6em;
+    left: 4em;
+    background-color:#4b2e83;
+    border-radius: 1.5em;
+    color:white;
+    text-transform: uppercase;
+    padding: 1.5em 1em;
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+    width: 60%;
+}
+
+
+footer a:hover {
+    color: #b7a57a;
+    text-decoration: none;
+}
+
+.click a:hover {
+    color:#b7a57a;
+    text-decoration: none;
+}
+
+.click img {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 200px;
+    width: 200px;
+    margin: 20px;
+    border-radius: 20%;
+    box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+}
+
+/* Footer at bottom of page. */
+footer {
+    text-align: center;
+    background-color: black;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 2.5rem;
+}
+
+
+/* General advisor spotlight content. */
+.content .description {
+    position: relative;
+    display: flex;
+    margin-top: 40px;
+    width: 90%;
+}
+
+.advisor img {
+    position: relative;
+    vertical-align: middle;
+    padding-left: 20%;
+    width: 250px;
+    height: 230px;
+}
+
+.subtitle p {
+    color:#b7a57a;
+    font-size: 20px;
+    font-style: italic;
+}
+
+@media (min-width: 320px) and (max-width: 419px) {
+    .logo {
+        display: none;
+    }
+
+    .intro h1, .blurb h1 {
+        font-size: 25px;
+    }
+
+    .intro p, .blurb p {
+        font-size: 14px;
+    }
+
+    .blurb h2 {
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 598px) {
+    li .navbar-brand {
+        font-size: 17px;
+        margin-left: -9px;
+    }
+
+    footer p, a {
+        font-size: 15px;
+    }
+
+    .img-container {
+        width: 80%;
+    }
+
+    .description p {
+        margin-bottom: 50px;
+    }
+
+    .advisor img {
+        width: 60%;
+        height: 60%;
+    }
+
+}
+
+@media (min-width: 598px) {
+    footer p, a {
+        font-size: 13px;
+    }
+
+    .intro h1, .blurb h1 {
+        margin-left: 50px;
+        margin-top: 20px;
+    }
+
+    .intro p, .blurb h2, .blurb p {
+        margin-left: 50px;
+    }
+
+    .logo {
+        background-size: 3rem;
+        padding-left: 1rem;
+    }
+
+    .navbar li .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    .advisor img {
+        padding-left: 30%;
+        width: 60%;
+        height: 60%;
+    }
+
+    .img-container {
+       width: 90%;
+       padding-left: 15px;
+    }
+
+    .img-container .click {
+        margin-left: 1.95%;
+    }
+
+    .click img {
+        height: 225px;
+        width: 225px;
+    }
+
+    .description p {
+        margin-bottom: 50px;
+    }
+    
+}
+
+
+@media (min-width: 768px) {
+    footer p, a {
+        font-size: 18px;
+    }
+
+    .logo {
+        display: inline;
+        background-size: 4rem;
+        padding-left: 2rem;
+    }
+
+    .intro h1, .blurb h1 {
+        font-size: 30px;
+    }
+
+    .intro p, .blurb p {
+        margin-left: 50px;
+        margin-right: 50px;
+        font-size: 18px;
+    }
+
+    .navbar li .navbar-brand {
+        font-size: 1.8rem;
+        padding-left: 1.5em;
+    }
+
+    .img-container {
+        width: 115%;
+    }
+
+    .img.container .click {
+        margin-left: 10%;
+    }
+
+    .click img {
+        height: 220px;
+        width: 220px;
+    }
+
+    .advisor img {
+        padding-left: 25%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .content .img-fluid {
+        float: right;
+        width: 50%;
+        right: 150px;
+    }
+
+    .content .description {
+        display: inline;
+    }
+}
+
+@media (min-width: 992px) {
+    .intro h1, .blurb h1 {
+        font-size: 35px;
+    }
+
+    .intro p, .blurb p {
+        font-size: 20px;
+    }
+
+    .navbar li .navbar-brand {
+        margin-right: 200px;
+    }
+
+    .img-container {
+        width: 190%;
+        padding-left: 30px;
+    }
+
+    .click {
+        margin-left: 1.5%;
+    }
+
+    .click img {
+        height: 260px;
+        width: 260px;
+    }
+
+    .click a {
+        position: absolute;
+        bottom: 9em;
+        left: 6em;
+        padding: 1.5em 1em;
+    }
+
+    .advisor img {
+        padding-left: 20%;
+        width: 120%;
+        height: 120%;
+    }
+
+    .content .description {
+        margin-right: 50px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .logo {
+        padding-left: 5rem;
+    }
+
+    .intro h1, .blurb h1 {
+        font-size: 45px;
+        margin-left: 150px;
+        margin-top: 80px;
+    }
+
+    .intro p, .blurb p {
+        font-size: 25px;
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+
+    .blurb h2 {
+        font-size: 30px;
+        margin-left: 150px;
+        line-height: 1;
+    }
+
+    .description p {
+        margin-bottom: 100px;
+    }
+
+    .img-container {
+        width: 110%;
+        padding-left: 20px;
+    }
+
+    .click {
+        margin-left: 2.5%;
+    }
+
+    .click img {
+        height: 350px;
+        width: 350px;
+    }
+
+    .click a {
+        position: absolute;
+        bottom: 8em;
+        left: 5em;
+        padding: 1.5em 1em;
+        font-size: 18px;
+    }
+
+    .advisor img {
+        padding-left: 20%;
+        width: 120%;
+        height: 120%;
+    }
+}
+
+@media (min-width: 1500px) {
+    .navbar {
+        margin-bottom: 50px;
+    }
+
+    .navbar li .navbar-brand {
+        font-size: 3rem;
+        margin-right: 150px;
+    }
+
+    .logo {
+        background-size: 6rem;
+        padding-left: 5rem;
+        padding-bottom: 18rem;
+    }
+
+    footer p, a {
+        font-size: 20px;
+    }
+}
+
