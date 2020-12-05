@@ -1,0 +1,213 @@
+{
+    "departments":[
+        {
+            "name": "Arts",
+            "college": "College of Arts and Sciences",
+            "availability": 19
+        },
+        
+        {
+            "name": "Humanities",
+            "college": "College of Arts and Sciences",
+            "availability": 20
+        },
+
+        {
+            "name": "Natural Science",
+            "college": "College of Arts and Sciences",
+            "availability": 18
+        },
+
+        {
+            "name": "Social Science",
+            "college": "College of Arts and Sciences",
+            "availability": 20
+        },
+
+        {
+            "name": "Architecture",
+            "college": "College of Built Environments",
+            "availability": 5
+        },
+
+        {
+            "name": "Architectural Design",
+            "college": "College of Built Environments",
+            "availability": 2
+        },
+
+        {
+            "name": "Community, Environment, & Planning",
+            "college": "College of Built Environments",
+            "availability": 4
+        },
+
+        {
+            "name": "Construction Management",
+            "college": "College of Built Environments",
+            "availability": 2
+        },
+
+        {
+            "name": "Landscape Architecture",
+            "college": "College of Built Environments",
+            "availability": 1
+        },
+
+        {
+            "name": "Early Care and Education",
+            "college": "College of Education",
+            "availability": 4
+        },
+
+        {
+            "name": "Early Childhood and Family Studies",
+            "college": "College of Education",
+            "availability": 4
+        },
+
+        {
+            "name": "Education, Communities, and Organizations",
+            "college": "College of Education",
+            "availability": 6
+        },
+
+        {
+            "name": "Aeronautics and Astronautics",
+            "college": "College of Engineering",
+            "availability": 3
+        },
+
+        {
+            "name": "Bioengineering",
+            "college": "College of Engineering",
+            "availability": 2
+        },
+
+        {
+            "name": "Civil and Environmental Engineering",
+            "college": "College of Engineering",
+            "availability": 3
+        },
+
+        {
+            "name": "Computer Science and Engineering",
+            "college": "College of Engineering",
+            "availability": 7
+        },
+
+        {
+            "name": "Electrical and Computer Engineering",
+            "college": "College of Engineering",
+            "availability": 8
+        },
+
+        {
+            "name": "Industrial and Systems Engineering",
+            "college": "College of Engineering",
+            "availability": 7
+        },
+
+        {
+            "name": "Human Centered Design and Engineering",
+            "college": "College of Engineering",
+            "availability": 5
+        },
+
+        {
+            "name": "Materials Science and Engineering",
+            "college": "College of Engineering",
+            "availability": 5
+        },
+
+        {
+            "name": "Mechanical Engineering",
+            "college": "College of Engineering",
+            "availability": 5
+        },
+
+        {
+            "name": "Aquatic and Fishery Sciences",
+            "college": "College of the Environment",
+            "availability": 1
+        },
+
+        {
+            "name": "Atmospheric Sciences",
+            "college": "College of the Environment",
+            "availability": 12
+        },
+
+        {
+            "name": "Earth and Space Studies",
+            "college": "College of the Environment",
+            "availability": 15
+        },
+
+        {
+            "name": "Environmental Studies",
+            "college": "College of the Environment",
+            "availability": 16
+        },
+
+        {
+            "name": "Marine Biology",
+            "college": "College of the Environment",
+            "availability": 14
+        },
+
+        {
+            "name": "Oceanography",
+            "college": "College of the Environment",
+            "availability": 11
+        },
+
+        {
+            "name": "Informatics",
+            "college": "Information School",
+            "availability": 1
+        },
+
+        {
+            "name": "Business",
+            "college": "Michael G. Foster School of Business",
+            "availability": 9
+        },
+
+        {
+            "name": "Nursing",
+            "college": "School of Nursing",
+            "availability": 10
+        },
+
+        {
+            "name": "Environmental Health",
+            "college": "School of Public Health",
+            "availability": 17
+        },
+
+        {
+            "name": "Food Systems, Nutrition, and Health",
+            "college": "School of Public Health",
+            "availability": 17
+        },
+
+        {
+            "name": "Global Health",
+            "college": "School of Public Health",
+            "availability": 9
+        },
+
+        {
+            "name": "Health Informatics & Health Information Management",
+            "college": "School of Public Health",
+            "availability": 13
+        },
+
+        {
+            "name": "Public Health",
+            "college": "School of Public Health",
+            "availability": 16
+        }
+    ]
+}

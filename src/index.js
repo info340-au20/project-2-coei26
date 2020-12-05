@@ -3,5 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { LandingPage } from './Landing';
+import DEPT_DATA from './data/data.json';
 
-ReactDOM.render(<LandingPage />, document.getElementById('root'));
+ReactDOM.render(<App data={DEPT_DATA}/>, document.getElementById('root'));
