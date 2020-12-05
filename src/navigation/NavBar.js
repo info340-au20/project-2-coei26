@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
 
-const Example = (props) => {
+const NavBar = (props) => {
     const [collapsed, setCollapsed] = useState(true);
   
     const toggleNavbar = () =>  {
@@ -13,7 +13,7 @@ const Example = (props) => {
       <div>
         <Navbar color="faded" light>
           <NavbarBrand href="/" className="mr-auto navbarBrand">
-              UW Undergraduate ADvising
+              UW Undergraduate Advising
           </NavbarBrand>
           <NavbarToggler onClick={toggleNavbar} className="mr-2" />
           <Collapse isOpen={!collapsed} navbar>
@@ -26,15 +26,15 @@ const Example = (props) => {
         </Navbar>
       </div>
     );
-  }
-  
-  export default Example;
+}
+
+export default NavBar;
 
 
 
 
 
-
+// Old nav bar
 {/* export function NavBar() {
     return (
         <div>

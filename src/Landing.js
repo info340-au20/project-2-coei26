@@ -1,11 +1,11 @@
 import React from 'react';
-import Example from './navigation/NavBar.js'
+import NavBar from './navigation/NavBar.js'
 
 export function LandingPage() {
     return (
         <div>
             <body className="body">
-                <Example />
+                <NavBar />
                 <section className="greeting">
                     <div className="intro">
                         <h1>Questions?</h1>
