@@ -1,63 +1,45 @@
 import React, {useState} from 'react';
 import NavBar from './navigation/NavBar.js'
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
-import { Navbar, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, NavLink}  from 'reactstrap';
+import { Navbar, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, NavLink, FormGroup, Input, Label}  from 'reactstrap';
 import { LandingPage } from './Landing';
 
-
-// function App() {
-//     return (
-//         <Router>
-//             <div>
-//                 <Example />
-//             </div>
-//         </Router>
-//     )
-// }
-
 function App(props) {
-    // Map -> {CollegeName - Array of {deptName, availibility}}
-    let mappingData = {};
-    
-    // Mapping function
-    function mappingFunction(obj) {
-        let keyArr = Object.keys(mappingData);
-        let collegeName = obj.college;
+    // Setting the states
+    const [collegeData, setCollegeData] = useState(props.data.colleges);
 
-        if (keyArr.indexOf(collegeName) == -1) {
-            mappingData[collegeName] = []; // new key with a new list
-        }
-        let dept = {
-            "name": obj.name,
-            "availability": obj.availability
-        };
-        mappingData[collegeName].push(dept);
+    // Callback function for dealing with changes in slider window
+    const handleChange = (numAvail) => {
+        let newCollegeData = collegeData.map((college) => {
+            // console.log(college);
+            let deptData = college.departments;
+            
+            college['departments'] = deptData.map((dept) => {
+                // console.log(dept);
+                if (dept.availability >= numAvail) {
+                    dept.show = true;
+                } else {
+                    dept.show = false;
+                }
+                return dept;
+            })
+            return college;
+        })
+        setCollegeData(newCollegeData);
     }
 
-    // Departments
-    let departments = props.data.departments;
-
-    // Populate the mapping data
-    for (let i = 0; i < departments.length; i++) {
-        mappingFunction(departments[i]);
-    }
-
-    const availability = 0;
-    console.log(availability);
     return (
         <div>
-            <Navbar />
-            <FavDropDown avail={availability}/>
             <NavBar />
             <Router>
                 <Switch>
                     <Route path="/home" component={LandingPage} />
                 </Switch>
             </Router>
-            <FavDropDown />
+            <FavDropDown sliderCallBack={handleChange}/>
             <div className="container">
                 <div className="standard-page">
-                    <AllColleges map={mappingData}/>
+                    <AllColleges data={collegeData}/>
                 </div>
             </div>
         </div>
@@ -68,12 +50,11 @@ function App(props) {
 // All the colleges and their cards are processed inside this function
 // Props - Map -> {CollegeName - Array of {deptName, availibility}}
 function AllColleges(props) {
-    let collegeMap = Object.keys(props.map); // Array of collegeNames
-
-    let mapAllColleges = collegeMap.map((college) => {
-        let deptArr = props.map[college];
+    let mapAllColleges = props.data.map((college) => {
+        let deptArr = college.departments;
+        console.log(deptArr);
         return (<section className="college">
-                    <div><h1>{college}</h1></div>
+                    <div><h1>{college.college}</h1></div>
                     <div className="row">
                         <AllTiles list={deptArr}/>  
                     </div>
@@ -86,16 +67,18 @@ function AllColleges(props) {
 }
 
 function AllTiles(props) {
-    let list = props.list;
+    let list = props.list.filter((dept) => {
+        return dept['show'] === undefined || dept.show;
+    });
 
     let mapAllTiles = list.map((deptInfo) => {
         let tileRender = (
-            <div class="tile">
+            <div className="tile">
                 <h2>{deptInfo.name}</h2>
-                <div class="other-side">
+                <div className="other-side">
                     <button type="button">Email</button>
-                    <button type="button" class="favoritesButton" id={deptInfo.name} onclick="addNewFavorite(this.id)"><i class="far fa-star" aria-label="Add to Favorites" aria-hidden="true"></i></button>
-                    <button type="button"><i class="fas fa-calendar-alt" aria-label="Schedule Appointment" aria-hidden="true"></i></button>
+                    <button type="button" className="favoritesButton" id={deptInfo.name} onclick="addNewFavorite(this.id)"><i className="far fa-star" aria-label="Add to Favorites" aria-hidden="true"></i></button>
+                    <button type="button"><i className="fas fa-calendar-alt" aria-label="Schedule Appointment" aria-hidden="true"></i></button>
                 </div>
             </div>
         )
@@ -111,7 +94,7 @@ function AllTiles(props) {
 
 function FavDropDown(props) {
     return (<div className="favAndDropdown">
-                <GetDropdown avail={props.avail}/>
+                <GetDropdown sliderCallBack={props.sliderCallBack}/>
             </div>);
 }
 
@@ -120,10 +103,8 @@ function GetDropdown(props) {
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
-    const [currVal, setVal] = useState(props.avail);
-
-    const show = (event) => {
-        setVal(event.target.value);
+    const changeData = (event) => {
+        props.sliderCallBack(event.target.value);
     }
 
     return (
@@ -135,7 +116,7 @@ function GetDropdown(props) {
             <form className="px-4 py-3">
                 <FormGroup>
                     <Label for="formControlRange">Filter by Minimum Advisors Available</Label>
-                    <Input type="range" name="range" id="formControlRange" min="1" max="20"  onInput={show}/>
+                    <Input type="range" name="range" id="formControlRange" min="1" max="20"  onInput={changeData}/>
                 </FormGroup>
                 <div className="dropdown-divider"></div>
                 <div className="submit">
@@ -170,6 +151,8 @@ function GetDropdown(props) {
                         </form>
                     </div>
                 </div>
+
+
                 */
 
 export default App;
