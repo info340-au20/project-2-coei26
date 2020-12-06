@@ -103,18 +103,11 @@ h2 {
     text-align: center;
 }
 
-.single > .other-side {
-    margin-top: 10px;
-}
 
 .tile:hover .other-side {
     display: inline;
 }
 
-.single h2 {
-    margin-top: 10px;
-    margin-left: 15px;
-}
 
 .tile:hover h2 {
     display: none;
@@ -124,29 +117,10 @@ h2 {
     background: #b7a57a;
 }
 
-/* Singular tiles for college/department that only has 1 subsection. */
-.single {
-    height: 200px;
-    width: 300px;
-    background: #4b2e83;
-    margin-left: 5px;
-}
 
-.single:hover .other-side {
-    display: block;
-    width: 45%;
-}
-
-.single:hover h2 {
-    display: none;
-}
-
-.single:hover, .single:active {
-    background: #b7a57a;
-}
 
 /* Buttons styling for each of the tiles. */
-.tile button, .single button {
+.tile button {
     background-color: #4b2e83;
     color: white;
     padding: 5px;
@@ -155,11 +129,8 @@ h2 {
     margin-bottom: 8px;
 }
 
-footer a {
-    color: white;
-}
 
-.tile a, .single a {
+.tile a {
     text-transform: lowercase;
     text-decoration: none;
     font-size: 16px;
@@ -167,35 +138,16 @@ footer a {
     font-family: 'Open Sans', Helvetica, sans-serif;
 }
 
-footer p {
-    color: white;
-    text-decoration: none;
-    font-size: 15px;
-    bottom: 0;
-}
 
-.tile p, .single p {
+.tile p {
     color: white;
 } 
 
-footer a:hover {
-    color: #b7a57a;
-    text-decoration: none;
-}
 
-.tile a:hover, .single a:hover {
+.tile a:hover {
     color: #4b2e83;
 }
 
-/* Footer at the very bottom of the page. */
-footer {
-    text-align: center;
-    background-color: black;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    height: 2.5rem;
-}
 
 /* Styling for media screens max width 320 px */
 @media (min-width: 320px) and (max-width: 419px) {
@@ -216,7 +168,7 @@ footer {
         margin-left: 10px;
     }
 
-    .tile h2, .single h2 {
+    .tile h2 {
         font-size: 20px;
     }
 }
@@ -227,7 +179,7 @@ footer {
         margin-left: 25px;
     }
 
-    .tile h2, .single h2 {
+    .tile h2 {
         font-size: 20px;
     }
 
@@ -250,10 +202,6 @@ footer {
     .tile {
         flex: 1;
         height: 200px;
-    }
-
-    footer p, a {
-        font-size: 18px;
     }
 
     .supportText {
@@ -298,8 +246,5 @@ footer {
         font-size: 1.5rem;
     }
 
-    footer p, a {
-        font-size: 20px;
-    }
 }
 

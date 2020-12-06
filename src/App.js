@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import NavBar from './navigation/NavBar.js'
-import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
-import { Navbar, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, NavLink, FormGroup, Input, Label}  from 'reactstrap';
+import NavBar from './components/NavBar.js'
+import Footer from './components/Footer.js'
+import { Dropdown, DropdownToggle, DropdownMenu, FormGroup, Input, Label}  from 'reactstrap';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { LandingPage } from './Landing';
 import './index.css'
 
@@ -12,11 +13,9 @@ function App(props) {
     // Callback function for dealing with changes in slider window
     const handleChange = (numAvail) => {
         let newCollegeData = collegeData.map((college) => {
-            // console.log(college);
             let deptData = college.departments;
             let availableNow = 0;
             college['departments'] = deptData.map((dept) => {
-                // console.log(dept);
                 if (dept.availability >= numAvail) {
                     dept.show = true;
                     availableNow++;
@@ -25,7 +24,6 @@ function App(props) {
                 }
                 return dept;
             })
-            console.log(availableNow);
             college['availableNow'] = availableNow;
             return college;
         })
@@ -37,7 +35,7 @@ function App(props) {
             <NavBar />
             <Router>
                 <Switch>
-                    <Route path="/home" component={LandingPage} />
+                    <Route exact path="/home" component={LandingPage} />
                 </Switch>
             </Router>
             <FavDropDown sliderCallBack={handleChange}/>
@@ -46,6 +44,7 @@ function App(props) {
                     <AllColleges data={collegeData}/>
                 </div>
             </div>
+            <Footer />
         </div>
      
     );
@@ -139,32 +138,5 @@ function GetDropdown(props) {
       </Dropdown>
     );
 }
-
-/*<div class="dropdown">
-<div className="form-group">
-                    <label for="formControlRange">Filter by Minimum Advisors Available</label>
-                    <input type="range" className="form-control-range custom-range" min="1" max="20" value="1" id="formControlRange" oninput="num.value=formControlRange.value"/>
-                    <output name="num" id="num" for="formControlRange">1</output>
-                </div>
-                    <button class="btn btn-secondary dropdown-toggle" id="dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div class="dropdown-menu">
-                        <form class="px-4 py-3">
-                            <div class="form-group">
-                                <label for="formControlRange">Filter by Minimum Advisors Available</label>
-                                <input type="range" class="form-control-range custom-range" min="1" max="20" value="1" id="formControlRange" oninput="num.value=formControlRange.value">
-                                <output name="num" id="num" for="formControlRange">1</output>
-                            </div>
-                            <div class="dropdown-divider"></div>
-                            <div class="submit">
-                                <button type="button" class="apply btn btn-primary">Apply</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-
-                */
 
 export default App;
