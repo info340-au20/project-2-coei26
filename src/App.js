@@ -13,16 +13,19 @@ function App(props) {
         let newCollegeData = collegeData.map((college) => {
             // console.log(college);
             let deptData = college.departments;
-            
+            let availableNow = 0;
             college['departments'] = deptData.map((dept) => {
                 // console.log(dept);
                 if (dept.availability >= numAvail) {
                     dept.show = true;
+                    availableNow++;
                 } else {
                     dept.show = false;
                 }
                 return dept;
             })
+            console.log(availableNow);
+            college['availableNow'] = availableNow;
             return college;
         })
         setCollegeData(newCollegeData);
@@ -48,11 +51,13 @@ function App(props) {
 }
 
 // All the colleges and their cards are processed inside this function
-// Props - Map -> {CollegeName - Array of {deptName, availibility}}
+// Props - data -> {CollegeName - Array of {deptName, availibility}}
 function AllColleges(props) {
-    let mapAllColleges = props.data.map((college) => {
+    let filteredColleges = props.data.filter((college) => {
+        return college.availableNow === undefined || college.availableNow > 0;
+    })
+    let mapAllColleges = filteredColleges.map((college) => {
         let deptArr = college.departments;
-        console.log(deptArr);
         return (<section className="college">
                     <div><h1>{college.college}</h1></div>
                     <div className="row">
