@@ -6,17 +6,8 @@ html, body {
     overflow-x: hidden; 
 }
 
-.navbar {
-    text-shadow: 0.5px 0.5px 0.5px #333;
-    background-image: linear-gradient( 150deg,#4b2e83 10%, #b7a57a 90%);
-    border-radius: 0 0 85% 85% / 30%;
-    overflow: hidden;
-    cursor: default;
-    padding: 0;
-    margin-bottom: 30px;
-}
 
-li, a.mx-auto {
+a.mx-auto {
     list-style-type: none;
     color: WHITE;
     font-family: 'Encode Sans', Helvetica, sans-serif;
@@ -24,27 +15,6 @@ li, a.mx-auto {
     font-weight: 900px;
     text-decoration: none;
     text-transform: uppercase;
-}
-
-li .navbar-brand {
-    list-style-type: none;
-    color: WHITE;
-    font-family: 'Encode Sans', Helvetica, sans-serif;
-    font-size: 20px;
-    font-weight: 900px;
-    text-transform: uppercase;
-    margin-left: 10px;
-}
-
-.logo {
-    padding-right: 2em;
-    padding-left: 0.5em;
-    padding-top: 10em;
-    padding-bottom: 10em;
-    background-size: 50px;
-    background-position: left;
-    background-image: url('../src/img/UW-Logo.png');
-    background-repeat: no-repeat;
 }
 
 .img-container {
