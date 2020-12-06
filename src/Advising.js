@@ -117,10 +117,6 @@ function GetDropdown(props) {
                     <Label for="formControlRange">Filter by Advisors Available</Label>
                     <Input type="range" name="range" id="formControlRange" min="1" max="20"  onInput={changeData}/>
                 </FormGroup>
-                {/* <div className="dropdown-divider"></div>
-                <div className="submit">
-                    <button type="button" className="apply btn btn-primary">Apply</button>
-                </div> */}
             </form>
         </DropdownMenu>
       </Dropdown>
