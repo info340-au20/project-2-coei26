@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import NavBar from './navigation/NavBar.js'
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import { Navbar, Dropdown, DropdownToggle, DropdownMenu, DropdownItem}  from 'reactstrap';
+import { Navbar, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Form, FormGroup, Label, Input}  from 'reactstrap';
 
 // function App() {
 //     return (
@@ -40,10 +40,12 @@ function App(props) {
         mappingFunction(departments[i]);
     }
 
+    const availability = 0;
+    console.log(availability);
     return (
         <div>
             <Navbar />
-            <FavDropDown />
+            <FavDropDown avail={availability}/>
             <div className="container">
                 <div className="standard-page">
                     <AllColleges map={mappingData}/>
@@ -78,7 +80,7 @@ function AllTiles(props) {
     let list = props.list;
 
     let mapAllTiles = list.map((deptInfo) => {
-        return (
+        let tileRender = (
             <div class="tile">
                 <h2>{deptInfo.name}</h2>
                 <div class="other-side">
@@ -88,6 +90,7 @@ function AllTiles(props) {
                 </div>
             </div>
         )
+        return tileRender;
     })
 
     return (
@@ -97,17 +100,23 @@ function AllTiles(props) {
     )
 }
 
-function FavDropDown() {
+function FavDropDown(props) {
     return (<div className="favAndDropdown">
-                <GetDropdown />
+                <GetDropdown avail={props.avail}/>
             </div>);
 }
 
-function GetDropdown() {
+function GetDropdown(props) {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
-  
+
+    const [currVal, setVal] = useState(props.avail);
+
+    const show = (event) => {
+        setVal(event.target.value);
+    }
+
     return (
       <Dropdown direction="down" isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle caret aria-haspopup="true" aria-expanded="false">
@@ -115,11 +124,10 @@ function GetDropdown() {
         </DropdownToggle>
         <DropdownMenu>
             <form className="px-4 py-3">
-                <div className="form-group">
-                    <label for="formControlRange">Filter by Minimum Advisors Available</label>
-                    <input type="range" className="form-control-range custom-range" min="1" max="20" value="1" id="formControlRange" oninput="num.value=formControlRange.value"/>
-                    <output name="num" id="num" for="formControlRange">1</output>
-                </div>
+                <FormGroup>
+                    <Label for="formControlRange">Filter by Minimum Advisors Available</Label>
+                    <Input type="range" name="range" id="formControlRange" min="1" max="20"  onInput={show}/>
+                </FormGroup>
                 <div className="dropdown-divider"></div>
                 <div className="submit">
                     <button type="button" className="apply btn btn-primary">Apply</button>
@@ -131,6 +139,11 @@ function GetDropdown() {
 }
 
 /*<div class="dropdown">
+<div className="form-group">
+                    <label for="formControlRange">Filter by Minimum Advisors Available</label>
+                    <input type="range" className="form-control-range custom-range" min="1" max="20" value="1" id="formControlRange" oninput="num.value=formControlRange.value"/>
+                    <output name="num" id="num" for="formControlRange">1</output>
+                </div>
                     <button class="btn btn-secondary dropdown-toggle" id="dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-bars"></i>
                     </button>
