@@ -52,13 +52,6 @@ a.mx-auto {
     line-height: 0.25em;
 }
 
-footer p, a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    bottom: 0;
-}
-
 .intro p, .blurb p {
     color:#535353;
     font-family: 'Open Sans', Helvetica, sans-serif;
@@ -73,10 +66,6 @@ footer p, a {
     position: relative;
     text-align: center;
     padding-left: 1%;
-}
- 
-footer a {
-    color: white;
 }
 
 .click a {
@@ -95,11 +84,6 @@ footer a {
 }
 
 
-footer a:hover {
-    color: #b7a57a;
-    text-decoration: none;
-}
-
 .click a:hover {
     color:#b7a57a;
     text-decoration: none;
@@ -114,16 +98,6 @@ footer a:hover {
     margin: 20px;
     border-radius: 20%;
     box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
-}
-
-/* Footer at bottom of page. */
-footer {
-    text-align: center;
-    background-color: black;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    height: 2.5rem;
 }
 
 
@@ -150,10 +124,6 @@ footer {
 }
 
 @media (min-width: 320px) and (max-width: 419px) {
-    .logo {
-        display: none;
-    }
-
     .intro h1, .blurb h1 {
         font-size: 25px;
     }
@@ -174,10 +144,6 @@ footer {
         margin-left: -9px;
     }
 
-    footer p, a {
-        font-size: 15px;
-    }
-
     .img-container {
         width: 80%;
     }
@@ -194,10 +160,6 @@ footer {
 }
 
 @media (min-width: 598px) {
-    footer p, a {
-        font-size: 13px;
-    }
-
     .intro h1, .blurb h1 {
         margin-left: 50px;
         margin-top: 20px;
@@ -205,11 +167,6 @@ footer {
 
     .intro p, .blurb h2, .blurb p {
         margin-left: 50px;
-    }
-
-    .logo {
-        background-size: 3rem;
-        padding-left: 1rem;
     }
 
     .navbar li .navbar-brand {
@@ -244,16 +201,6 @@ footer {
 
 
 @media (min-width: 768px) {
-    footer p, a {
-        font-size: 18px;
-    }
-
-    .logo {
-        display: inline;
-        background-size: 4rem;
-        padding-left: 2rem;
-    }
-
     .intro h1, .blurb h1 {
         font-size: 30px;
     }
@@ -345,10 +292,6 @@ footer {
 }
 
 @media (min-width: 1200px) {
-    .logo {
-        padding-left: 5rem;
-    }
-
     .intro h1, .blurb h1 {
         font-size: 45px;
         margin-left: 150px;
@@ -408,16 +351,6 @@ footer {
     .navbar li .navbar-brand {
         font-size: 3rem;
         margin-right: 150px;
-    }
-
-    .logo {
-        background-size: 6rem;
-        padding-left: 5rem;
-        padding-bottom: 18rem;
-    }
-
-    footer p, a {
-        font-size: 20px;
     }
 }
 
