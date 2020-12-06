@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import NavBar from './navigation/NavBar.js'
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import { Navbar, Dropdown, DropdownToggle, DropdownMenu, DropdownItem}  from 'reactstrap';
+import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import { Navbar, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, NavLink}  from 'reactstrap';
+import { LandingPage } from './Landing';
 
 // function App() {
 //     return (
@@ -42,7 +43,12 @@ function App(props) {
 
     return (
         <div>
-            <Navbar />
+            <NavBar />
+            <Router>
+                <Switch>
+                    <Route path="/home" component={LandingPage} />
+                </Switch>
+            </Router>
             <FavDropDown />
             <div className="container">
                 <div className="standard-page">

@@ -1,0 +1,19 @@
+/* Include custom colors and sizing */
+nav {
+    background-image: linear-gradient( 150deg,#4b2e83, #b7a57a);
+    margin-bottom: 2em; 
+    padding: 1em;  
+    font-family: 'Encode Sans', 'Helvetica', sans-serif;
+}
+
+.tabs {
+    font-family: 'Open Sans', 'Helvetica', 'sans-serif';
+
+}
+
+@media (max-width: 400px) {
+    .name > span {
+        display: none;
+    }
+}
+
