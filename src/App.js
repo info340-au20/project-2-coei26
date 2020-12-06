@@ -3,6 +3,7 @@ import NavBar from './navigation/NavBar.js'
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 import { Navbar, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, NavLink, FormGroup, Input, Label}  from 'reactstrap';
 import { LandingPage } from './Landing';
+import './index.css'
 
 function App(props) {
     // Setting the states
@@ -98,9 +99,15 @@ function AllTiles(props) {
 }
 
 function FavDropDown(props) {
-    return (<div className="favAndDropdown">
-                <GetDropdown sliderCallBack={props.sliderCallBack}/>
-            </div>);
+    return(
+        <div className='container'>
+            <div className='standard-page'>
+                <div className="favAndDropdown">
+                    <GetDropdown sliderCallBack={props.sliderCallBack}/>
+                </div>
+            </div>
+        </div>
+    )
 }
 
 function GetDropdown(props) {
@@ -120,13 +127,13 @@ function GetDropdown(props) {
         <DropdownMenu>
             <form className="px-4 py-3">
                 <FormGroup>
-                    <Label for="formControlRange">Filter by Minimum Advisors Available</Label>
+                    <Label for="formControlRange">Filter by Advisors Available</Label>
                     <Input type="range" name="range" id="formControlRange" min="1" max="20"  onInput={changeData}/>
                 </FormGroup>
-                <div className="dropdown-divider"></div>
+                {/* <div className="dropdown-divider"></div>
                 <div className="submit">
                     <button type="button" className="apply btn btn-primary">Apply</button>
-                </div>
+                </div> */}
             </form>
         </DropdownMenu>
       </Dropdown>

@@ -1,0 +1,305 @@
+html, body {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    color:white;
+    margin: 0px;
+}
+
+/* Styling for favorites "star" icon. */
+button .favorites {
+    padding-right: 1em;
+    padding-left: 1.5em;
+    padding-top: 10em;
+    padding-bottom: 9.5em;
+    background-size: 40px;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.favoritesIcon {
+    padding-top: 10px;
+}
+
+
+.form-group > label {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.dropdown {
+    margin-bottom: 10px;
+}
+
+/* Allows all selected list elements to be inline. */
+.favAndDropdown {
+    display: inline-flex;
+}
+
+.supportText {
+    display: inline-flex;
+    font-size: 15px;
+}
+
+/* Container for all tiles. */
+.container {
+    margin-bottom: 10px;
+}
+
+/* All h1 in college class. */
+.college h1 {
+    color:#4b2e83;
+    font-family: 'Encode Sans', Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+/* Color of h1 when hovered. */
+h1:hover, h1:active {
+    color: #b7a57a;
+    cursor: default;
+}
+
+h2 {
+    color: white;
+    margin: 10px;
+    font-size: 15px;
+}
+
+/* Rows in each college/department. */
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 5px;
+}
+
+
+/* Styling for each tile. */
+.tile {
+    display: flex;
+    flex: 100%;
+    width: 200px;
+    height: 150px;
+    float: left;
+    margin: 5px;
+    padding: 10px;
+    background: #4b2e83;
+}
+
+.other-side button {
+    width: 90%;
+    border: none;
+    margin-top: 4px;
+}
+
+.other-side {
+    display: none;
+    text-align: center;
+}
+
+.single > .other-side {
+    margin-top: 10px;
+}
+
+.tile:hover .other-side {
+    display: inline;
+}
+
+.single h2 {
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.tile:hover h2 {
+    display: none;
+}
+
+.tile:hover, .tile:active {
+    background: #b7a57a;
+}
+
+/* Singular tiles for college/department that only has 1 subsection. */
+.single {
+    height: 200px;
+    width: 300px;
+    background: #4b2e83;
+    margin-left: 5px;
+}
+
+.single:hover .other-side {
+    display: block;
+    width: 45%;
+}
+
+.single:hover h2 {
+    display: none;
+}
+
+.single:hover, .single:active {
+    background: #b7a57a;
+}
+
+/* Buttons styling for each of the tiles. */
+.tile button, .single button {
+    background-color: #4b2e83;
+    color: white;
+    padding: 5px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+footer a {
+    color: white;
+}
+
+.tile a, .single a {
+    text-transform: lowercase;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+footer p {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    bottom: 0;
+}
+
+.tile p, .single p {
+    color: white;
+} 
+
+footer a:hover {
+    color: #b7a57a;
+    text-decoration: none;
+}
+
+.tile a:hover, .single a:hover {
+    color: #4b2e83;
+}
+
+/* Footer at the very bottom of the page. */
+footer {
+    text-align: center;
+    background-color: black;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 2.5rem;
+}
+
+/* Styling for media screens max width 320 px */
+@media (min-width: 320px) and (max-width: 419px) {
+    h2 {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 420px) and (max-width: 597px){
+    .navbar .navbar-brand {
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 598px) {
+    .navbar .navbar-brand {
+        font-size: 17px;
+        margin-left: 10px;
+    }
+
+    .tile h2, .single h2 {
+        font-size: 20px;
+    }
+}
+
+ @media (min-width: 598px) {
+    .navbar .navbar-brand {
+        font-size: 25px;
+        margin-left: 25px;
+    }
+
+    .tile h2, .single h2 {
+        font-size: 20px;
+    }
+
+    .supportText {
+        font-size: 20px;
+    }
+    
+}
+
+/* Styling for media screens 768 px or wider. */
+@media (min-width: 768px) {
+    .navbar li .navbar-brand {
+        font-size: 1.8rem;
+    }
+
+    .container h1 {
+        font-size: 2rem; 
+    }
+
+    .tile {
+        flex: 1;
+        height: 200px;
+    }
+
+    footer p, a {
+        font-size: 18px;
+    }
+
+    .supportText {
+        font-size: 20px;
+    }
+    
+}
+
+/* Styling for media screens 992px or wider. */
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}
+
+/*Styling for media queries 1500px or wider. */
+@media (min-width: 1500px) {
+    .navbar {
+        margin-bottom: 50px;
+    }
+
+    .navbar li .navbar-brand {
+        font-size: 3rem;
+    }
+
+    form {
+        width: 70%;
+        margin-left: 15%;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .container h1 {
+        font-size: 2.25rem;
+    }
+
+    .container h2 {
+        font-size: 1.5rem;
+    }
+
+    footer p, a {
+        font-size: 20px;
+    }
+}
+
