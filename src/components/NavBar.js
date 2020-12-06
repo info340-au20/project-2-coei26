@@ -14,7 +14,7 @@ const NavBar = (props) => {
     return (
       <div>
         <Navbar collapseOnSelect expand="lg" variant="dark" className="py-4">
-          <Navbar.Brand className="name" href="/">UW <span>UNDERGRADUATE</span> ADVISING</Navbar.Brand>
+          <Navbar.Brand className="name" >UW <span>UNDERGRADUATE</span> ADVISING</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Container className="tabs">
