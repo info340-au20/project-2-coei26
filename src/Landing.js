@@ -46,7 +46,7 @@ function PageOptions() {
                 <div className="click">
                     <img className="img-fluid mx-auto" src="https://i.pinimg.com/originals/33/5f/8f/335f8f1e1c6916676af731517509834b.jpg"
                     alt="The Quad at UW." />
-                    <a className="mx-auto" href="index.html">Departmental Advising</a>
+                    <a className="mx-auto" href="/deptadvising">Departmental Advising</a>
                 </div>
                 <div className="click">
                     <img className="img-fluid mx-auto" src="https://honors.uw.edu/wp-content/uploads/2018/08/Suzzalo_Library_inside.jpg"
