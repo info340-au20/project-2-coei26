@@ -136,14 +136,14 @@ function GetDropdown(props) {
     // Render the dropdown content
     return (
       <Dropdown direction="down" isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle caret aria-haspopup="true" aria-expanded="false">
+        <DropdownToggle caret aria-expanded="false">
             <i className="fas fa-bars"></i>
         </DropdownToggle>
         <DropdownMenu>
             <form className="px-4 py-3">
                 <FormGroup>
                     <Label for="formControlRange">Filter by Advisors Available</Label>
-                    <Input type="range" name="range" id="formControlRange" min="1" max="20" onInput={changeData}/>
+                    <Input type="range" name="range" id="formControlRange" min="1" max="20" value="1" onChange={changeData} />
                 </FormGroup>
             </form>
         </DropdownMenu>
