@@ -45,18 +45,22 @@ function AllColleges(props) {
         return college.availableNow === undefined || college.availableNow > 0;
     })
     let mapAllColleges = filteredColleges.map((college) => {
-        let deptArr = college.departments;
-        return (<section className="college">
-                    <div><h1>{college.college}</h1></div>
-                    <div className="row">
-                        <AllTiles list={deptArr}/>  
-                    </div>
-                </section>
-        );
+        return <College key={college.college} college={college} />;
     });
     return (<div>
         {mapAllColleges}
     </div>)
+}
+
+function College(props) {
+    let college = props.college;
+    let deptArr = college.departments;
+    return (<section className="college">
+                <div><h1>{college.college}</h1></div>
+                <div className="row">
+                    <AllTiles key={college.college} list={deptArr}/>  
+                </div>
+            </section>);
 }
 
 function AllTiles(props) {
@@ -65,17 +69,7 @@ function AllTiles(props) {
     });
 
     let mapAllTiles = list.map((deptInfo) => {
-        let tileRender = (
-            <div className="tile">
-                <h2>{deptInfo.name}</h2>
-                <div className="other-side">
-                    <button type="button">Email</button>
-                    <button type="button" className="favoritesButton" id={deptInfo.name} onclick="addNewFavorite(this.id)"><i className="far fa-star" aria-label="Add to Favorites" aria-hidden="true"></i></button>
-                    <button type="button"><i className="fas fa-calendar-alt" aria-label="Schedule Appointment" aria-hidden="true"></i></button>
-                </div>
-            </div>
-        )
-        return tileRender;
+        return <Tile key={deptInfo.name} deptInfo={deptInfo} />;
     })
 
     return (
@@ -83,6 +77,19 @@ function AllTiles(props) {
             {mapAllTiles}
         </div>
     )
+}
+
+function Tile(props) {
+    let deptInfo = props.deptInfo;
+
+    return (<div className="tile">
+                <h2>{deptInfo.name}</h2>
+                <div className="other-side">
+                    <button type="button">Email</button>
+                    <button type="button" className="favoritesButton" id={deptInfo.name} onclick="addNewFavorite(this.id)"><i className="far fa-star" aria-label="Add to Favorites" aria-hidden="true"></i></button>
+                    <button type="button"><i className="fas fa-calendar-alt" aria-label="Schedule Appointment" aria-hidden="true"></i></button>
+                </div>
+            </div>);
 }
 
 function FavDropDown(props) {

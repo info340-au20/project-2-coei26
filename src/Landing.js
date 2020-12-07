@@ -38,7 +38,7 @@ function PageOptions() {
                 <div className="click">
                     <img className="img-fluid mx-auto" src="https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/5/2020/02/12212857/190226_MaryGatesHall_BryanNakata-16-web-750x500.jpg"
                     alt="A building at University of Washington" />
-                    <a className="mx-auto" href="https://www.washington.edu/uaa/advising/" target="_blank">General Advising</a>
+                    <a className="mx-auto" href="https://www.washington.edu/uaa/advising/" target="_blank" rel="noopener noreferrer">General Advising</a>
                 </div>
                 <div className="click">
                     <img className="img-fluid mx-auto" src="https://i.pinimg.com/originals/33/5f/8f/335f8f1e1c6916676af731517509834b.jpg"
@@ -48,7 +48,7 @@ function PageOptions() {
                 <div className="click">
                     <img className="img-fluid mx-auto" src="https://honors.uw.edu/wp-content/uploads/2018/08/Suzzalo_Library_inside.jpg"
                     alt="Suzzalo Library" />
-                    <a className="mx-auto" href="https://www.washington.edu/uaa/advising/academic-planning/plan-your-degree/" target="_blank">Academic Planning</a>
+                    <a className="mx-auto" href="https://www.washington.edu/uaa/advising/academic-planning/plan-your-degree/" target="_blank" rel="noopener noreferrer">Academic Planning</a>
                 </div>
             </div>
         </div>

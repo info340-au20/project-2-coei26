@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
-//import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'react-bootstrap';
-import { Router, Link } from 'react-router-dom';
+import React from 'react';
 import '../design.css';
-import {Container, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'react-bootstrap';
+import {Container,  Navbar,  Nav} from 'react-bootstrap';
 
 const NavBar = (props) => {
-    const [collapsed, setCollapsed] = useState(true);
+    // const [collapsed, setCollapsed] = useState(true);
   
-    const toggleNavbar = () =>  {
-        setCollapsed(!collapsed);
-    }
+    // const toggleNavbar = () =>  {
+    //     setCollapsed(!collapsed);
+    // }
 
     return (
       <div>
