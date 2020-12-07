@@ -16,8 +16,9 @@ function App(props) {
             <div>
                 <NavBar />
                     <Switch>
-                        <Route exact path="/home" component={LandingPage} />
+                        <Route exact path="/" component={LandingPage} />
                         <Route path='/deptadvising' render={renderAdvisingPage} />
+                        <Route path='/home' component={LandingPage} />
                     </Switch>
                 <Footer />
             </div>
