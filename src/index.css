@@ -58,12 +58,6 @@ button .favorites {
     margin-top: 10px;
 }
 
-/* Color of h1 when hovered. */
-h1:hover, h1:active {
-    color: #b7a57a;
-    cursor: default;
-}
-
 h2 {
     color: white;
     margin: 10px;
