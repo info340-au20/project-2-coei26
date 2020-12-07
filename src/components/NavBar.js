@@ -3,12 +3,6 @@ import '../design.css';
 import {Container,  Navbar,  Nav} from 'react-bootstrap';
 
 const NavBar = (props) => {
-    // const [collapsed, setCollapsed] = useState(true);
-  
-    // const toggleNavbar = () =>  {
-    //     setCollapsed(!collapsed);
-    // }
-
     return (
       <div>
         <Navbar collapseOnSelect expand="lg" variant="dark" className="py-4">

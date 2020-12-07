@@ -39,7 +39,7 @@ a.mx-auto {
 }
 
 
-.blurb > h1, h2, p {
+.blurb > h1, h2 {
     margin-left: 25px;
     margin-top: 20px;
 }
