@@ -86,7 +86,7 @@ function Tile(props) {
                 <h2>{deptInfo.name}</h2>
                 <div className="other-side">
                     <button type="button">Email</button>
-                    <button type="button" className="favoritesButton" id={deptInfo.name} onclick="addNewFavorite(this.id)"><i className="far fa-star" aria-label="Add to Favorites" aria-hidden="true"></i></button>
+                    <button type="button" className="favoritesButton" id={deptInfo.name}><i className="far fa-star" aria-label="Add to Favorites" aria-hidden="true"></i></button>
                     <button type="button"><i className="fas fa-calendar-alt" aria-label="Schedule Appointment" aria-hidden="true"></i></button>
                 </div>
             </div>);
@@ -122,7 +122,7 @@ function GetDropdown(props) {
             <form className="px-4 py-3">
                 <FormGroup>
                     <Label for="formControlRange">Filter by Advisors Available</Label>
-                    <Input type="range" name="range" id="formControlRange" min="1" max="20"  onInput={changeData}/>
+                    <Input type="range" name="range" id="formControlRange" min="1" max="20" onInput={changeData}/>
                 </FormGroup>
             </form>
         </DropdownMenu>
