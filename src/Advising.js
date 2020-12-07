@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, FormGroup, Input, Label}  from 'reactstrap';
 import './index.css'
 
+// The main function handling all the advising page logic
 function AdvisingPage(props) {
     // Setting the states
     const [collegeData, setCollegeData] = useState(props.data.colleges);
@@ -41,17 +42,23 @@ function AdvisingPage(props) {
 // All the colleges and their cards are processed inside this function
 // Props - data -> {CollegeName - Array of {deptName, availibility}}
 function AllColleges(props) {
+    // Filter all the colleges based on slider window input
     let filteredColleges = props.data.filter((college) => {
         return college.availableNow === undefined || college.availableNow > 0;
     })
+
+    // Get a list of college content
     let mapAllColleges = filteredColleges.map((college) => {
         return <College key={college.college} college={college} />;
     });
+
+    // Return all the college content
     return (<div>
         {mapAllColleges}
     </div>)
 }
 
+// Renders the content for a single college
 function College(props) {
     let college = props.college;
     let deptArr = college.departments;
@@ -63,15 +70,21 @@ function College(props) {
             </section>);
 }
 
+// Renders all the tiles which are information about all the 
+// departments within the college
 function AllTiles(props) {
+    // Filter the colleges based on slider window input
     let list = props.list.filter((dept) => {
         return dept['show'] === undefined || dept.show;
     });
 
+    // Get a list of tiles and delegate the tile rendering to another
+    // component
     let mapAllTiles = list.map((deptInfo) => {
         return <Tile key={deptInfo.name} deptInfo={deptInfo} />;
     })
 
+    // Render the list
     return (
         <div>
             {mapAllTiles}
@@ -79,9 +92,9 @@ function AllTiles(props) {
     )
 }
 
+// Render a single department tile
 function Tile(props) {
     let deptInfo = props.deptInfo;
-
     return (<div className="tile">
                 <h2>{deptInfo.name}</h2>
                 <div className="other-side">
@@ -92,6 +105,8 @@ function Tile(props) {
             </div>);
 }
 
+// Render the dropdown button content which consists of the
+// slider window
 function FavDropDown(props) {
     return(
         <div className='container'>
@@ -104,15 +119,21 @@ function FavDropDown(props) {
     )
 }
 
+// Renders the content for dropdown and handles the change in
+// slider window through callback function passed as prop
 function GetDropdown(props) {
+    // States for the dropdown
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
+    // Callback function for handling the change in input for
+    // slider window
     const changeData = (event) => {
         props.sliderCallBack(event.target.value);
     }
 
+    // Render the dropdown content
     return (
       <Dropdown direction="down" isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle caret aria-haspopup="true" aria-expanded="false">
@@ -130,4 +151,5 @@ function GetDropdown(props) {
     );
 }
 
+// Export the main advising page function to main app
 export default AdvisingPage;

@@ -2,6 +2,7 @@ import React from 'react';
 import '../design.css';
 import {Container,  Navbar,  Nav} from 'react-bootstrap';
 
+// Renders the content for NavBar 
 const NavBar = (props) => {
     return (
       <div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './landing.css';
 
+// Renders the content for the main landing page
 export function LandingPage() {
     return (
         <div>
@@ -31,6 +32,8 @@ export function LandingPage() {
     )
 }
 
+// Renders the content for the page options for advising and returns
+// to main landling page later
 function PageOptions() {
     return (
         <div>
