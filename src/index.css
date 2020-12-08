@@ -32,6 +32,7 @@ button .favorites {
 
 .dropdown {
     margin-bottom: 10px;
+    
 }
 
 /* Allows all selected list elements to be inline. */
@@ -48,6 +49,18 @@ button .favorites {
 .container {
     margin-bottom: 10px;
 }
+
+/* label for advisor availability form */
+.form-label {
+    font-family: 'Encode Sans', Helvetica, sans-serif;
+    color: black;
+    width: 300px;
+}
+
+.form-group {
+    font-family: 'Open Sans', 'Helvetica', sans-serif;
+}
+
 
 /* All h1 in college class. */
 .college h1 {
@@ -215,10 +228,6 @@ h2 {
 
 /*Styling for media queries 1500px or wider. */
 @media (min-width: 1500px) {
-    .navbar {
-        margin-bottom: 50px;
-    }
-
     .navbar li .navbar-brand {
         font-size: 3rem;
     }
@@ -238,6 +247,11 @@ h2 {
 
     .container h2 {
         font-size: 1.5rem;
+    }
+
+    .tile {
+        width: 250px;
+        height: 250px;
     }
 
 }

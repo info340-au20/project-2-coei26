@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, FormGroup, Input, Label}  from 'reactstrap';
 import './index.css'
+import { Form } from 'react-bootstrap';
 
 // The main function handling all the advising page logic
 function AdvisingPage(props) {
@@ -135,21 +136,63 @@ function GetDropdown(props) {
 
     // Render the dropdown content
     return (
-      <Dropdown direction="down" isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle caret aria-expanded="false">
-            <i className="fas fa-bars"></i>
-        </DropdownToggle>
-        <DropdownMenu>
-            <form className="px-4 py-3">
-                <FormGroup>
-                    <Label for="formControlRange">Filter by Advisors Available</Label>
-                    <Input type="range" name="range" id="formControlRange" min="1" max="20" value="1" onChange={changeData} />
-                </FormGroup>
-            </form>
-        </DropdownMenu>
-      </Dropdown>
+    //   <Dropdown direction="down" isOpen={dropdownOpen} toggle={toggle}>
+    //     <DropdownToggle caret aria-haspopup="true" aria-expanded="false">
+    //         <i className="fas fa-bars"></i>
+    //     </DropdownToggle>
+    //     <DropdownMenu>
+    //     </DropdownMenu>
+    //   </Dropdown>
+        <Form>
+            <Form.Group controlId="exampleForm.ControlSelect1" isOpen={dropdownOpen} toggle={toggle}>
+                <Form.Label>Number of Available Advisors:</Form.Label>
+                <Form.Control as="select" size="md" onChange={changeData}>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                </Form.Control>
+            </Form.Group>
+        </Form>
     );
 }
+
+{/* function Example() {
+    const [show, setShow] = useState(false);
+    const target = useRef(null);
+  
+    return (
+      <>
+        <Button ref={target} onClick={() => setShow(!show)}>
+          Click me!
+        </Button>
+        <Overlay target={target.current} show={show} placement="right">
+          {(props) => (
+            <Tooltip id="overlay-example" {...props}>
+              My Tooltip
+            </Tooltip>
+          )}
+        </Overlay>
+      </>
+    );
+  } */}
+  
 
 // Export the main advising page function to main app
 export default AdvisingPage;
