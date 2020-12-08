@@ -1,12 +1,25 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, FormGroup, Input, Label}  from 'reactstrap';
 import './index.css'
-import { Form } from 'react-bootstrap';
 
 // The main function handling all the advising page logic
-function AdvisingPage(props) {
+function AdvisingPage() {
     // Setting the states
-    const [collegeData, setCollegeData] = useState(props.data.colleges);
+    const [collegeData, setCollegeData] = useState([]);
+
+    // Fetch the data and assign states
+    useEffect(() => {
+        fetch('data/data.json')
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            setCollegeData(data.colleges);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }, [])
 
     // Callback function for dealing with changes in slider window
     const handleChange = (numAvail) => {
@@ -35,7 +48,7 @@ function AdvisingPage(props) {
                 <div className="standard-page">
                     <AllColleges data={collegeData}/>
                 </div>
-            </div>
+            </div> 
         </div>
     )
 }
@@ -136,63 +149,21 @@ function GetDropdown(props) {
 
     // Render the dropdown content
     return (
-    //   <Dropdown direction="down" isOpen={dropdownOpen} toggle={toggle}>
-    //     <DropdownToggle caret aria-haspopup="true" aria-expanded="false">
-    //         <i className="fas fa-bars"></i>
-    //     </DropdownToggle>
-    //     <DropdownMenu>
-    //     </DropdownMenu>
-    //   </Dropdown>
-        <Form>
-            <Form.Group controlId="exampleForm.ControlSelect1" isOpen={dropdownOpen} toggle={toggle}>
-                <Form.Label>Number of Available Advisors:</Form.Label>
-                <Form.Control as="select" size="md" onChange={changeData}>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                    <option>11</option>
-                    <option>12</option>
-                    <option>13</option>
-                    <option>14</option>
-                    <option>15</option>
-                    <option>16</option>
-                    <option>17</option>
-                    <option>18</option>
-                    <option>19</option>
-                    <option>20</option>
-                </Form.Control>
-            </Form.Group>
-        </Form>
+      <Dropdown direction="down" isOpen={dropdownOpen} toggle={toggle}>
+        <DropdownToggle caret aria-haspopup="true" aria-expanded="false">
+            <i className="fas fa-bars"></i>
+        </DropdownToggle>
+        <DropdownMenu>
+            <form className="px-4 py-3">
+                <FormGroup>
+                    <Label for="formControlRange">Filter by Advisors Available</Label>
+                    <Input type="range" name="range" id="formControlRange" min="1" max="20" onInput={changeData}/>
+                </FormGroup>
+            </form>
+        </DropdownMenu>
+      </Dropdown>
     );
 }
-
-{/* function Example() {
-    const [show, setShow] = useState(false);
-    const target = useRef(null);
-  
-    return (
-      <>
-        <Button ref={target} onClick={() => setShow(!show)}>
-          Click me!
-        </Button>
-        <Overlay target={target.current} show={show} placement="right">
-          {(props) => (
-            <Tooltip id="overlay-example" {...props}>
-              My Tooltip
-            </Tooltip>
-          )}
-        </Overlay>
-      </>
-    );
-  } */}
-  
 
 // Export the main advising page function to main app
 export default AdvisingPage;
