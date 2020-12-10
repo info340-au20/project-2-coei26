@@ -157,8 +157,8 @@ function GetDropdown(props) {
     // slider window
     const changeData = (event) => {
         props.sliderCallBack(event.target.value);
+        setVal(event.target.value);
     }
-
     // Render the dropdown content
     return (
       <Dropdown direction="down" isOpen={dropdownOpen} toggle={toggle}>
@@ -170,7 +170,7 @@ function GetDropdown(props) {
                 <FormGroup>
                     <Label for="formControlRange">Advisors Available</Label>
                     {/* <Input type="range" name="range" id="formControlRange" min="1" max="20" onInput={changeData}/> */}
-                    <RangeSlider for="formControlRange" defaultValue="1" value={val} onChange={val => setVal(changeData(val))} min="1" max="20" step="1" tooltip="on"/>
+                    <RangeSlider for="formControlRange" defaultValue="1" value={val} onChange={changeData} min="1" max="20" step="1" tooltip="on"/>
                 </FormGroup>
             </form>
         </DropdownMenu>
