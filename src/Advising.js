@@ -5,12 +5,6 @@ import RangeSlider from 'react-bootstrap-range-slider';
 import 'bootstrap/dist/css/bootstrap.css'; // or include from a CDN
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 
-// import 'rc-slider/assets/index.css';
-// import 'rc-tooltip/assets/bootstrap.css';
-// import {Range} from 'rc-slider';
-//const Slider = require('rc-slider');
-//const createSliderWithTooltip = Slider.createSliderWithTooltip;
-// const Range = createSliderWithTooltip(Range);
 
 // The main function handling all the advising page logic
 function AdvisingPage() {
@@ -170,7 +164,7 @@ function GetDropdown(props) {
                 <FormGroup>
                     <Label for="formControlRange">Advisors Available</Label>
                     {/* <Input type="range" name="range" id="formControlRange" min="1" max="20" onInput={changeData}/> */}
-                    <RangeSlider for="formControlRange" defaultValue="1" value={val} onChange={changeData} min="1" max="20" step="1" tooltip="on"/>
+                    <RangeSlider for="formControlRange" value={val} onChange={changeData} min="1" max="20" step="1" tooltip="on"/>
                 </FormGroup>
             </form>
         </DropdownMenu>

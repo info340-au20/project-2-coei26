@@ -14,8 +14,8 @@ const NavBar = (props) => {
               <Nav className="mr-auto">
                 <Nav.Link className="mr-4" href="/home">Home</Nav.Link>
                 <Nav.Link className="mr-4" href="/deptadvising">Departmental Advising</Nav.Link>
-                <Nav.Link className="mr-4" href="/">Log In</Nav.Link>
-                <Nav.Link className="mr-4" href="/">My Favorites</Nav.Link>
+                <Nav.Link className="mr-4" href="/account">Account</Nav.Link>
+                {/* <Nav.Link className="mr-4" href="/">My Favorites</Nav.Link> */}
               </Nav>
             </Container>
           </Navbar.Collapse>
