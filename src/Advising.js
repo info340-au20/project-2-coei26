@@ -1,5 +1,5 @@
-import React, { useEffect, useState, createSliderWithTooltip} from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, FormGroup, Input, Label}  from 'reactstrap';
+import React, { useEffect, useState } from 'react';
+import { Dropdown, DropdownToggle, DropdownMenu, FormGroup, Label}  from 'reactstrap';
 import './index.css';
 import RangeSlider from 'react-bootstrap-range-slider';
 import 'bootstrap/dist/css/bootstrap.css'; // or include from a CDN
@@ -156,7 +156,7 @@ function GetDropdown(props) {
     // Render the dropdown content
     return (
       <Dropdown direction="down" isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle caret aria-haspopup="true" aria-expanded="false">
+        <DropdownToggle caret aria-expanded="false">
             <i className="fas fa-bars"></i>
         </DropdownToggle>
         <DropdownMenu>

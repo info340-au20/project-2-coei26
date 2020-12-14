@@ -1,4 +1,4 @@
-import React, { useState, useEffect, WelcomeHeader } from 'react';
+// import React, { useState, useEffect, WelcomeHeader } from 'react';
 import NavBar from './components/NavBar.js'
 import Footer from './components/Footer.js'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../design.css';
 import {Container,  Navbar,  Nav} from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
 // Renders the content for NavBar 
 const NavBar = (props) => {
@@ -12,10 +13,9 @@ const NavBar = (props) => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Container className="tabs">
               <Nav className="mr-auto">
-                <Nav.Link className="mr-4" href="/home">Home</Nav.Link>
-                <Nav.Link className="mr-4" href="/deptadvising">Departmental Advising</Nav.Link>
-                <Nav.Link className="mr-4" href="/account">Account</Nav.Link>
-                {/* <Nav.Link className="mr-4" href="/">My Favorites</Nav.Link> */}
+                <Link className="mr-4" to="/home">Home</Link>
+                <Link className="mr-4" to="/deptadvising">Departmental Advising</Link>
+                <Link className="mr-4" to="/account">Account</Link>
               </Nav>
             </Container>
           </Navbar.Collapse>
