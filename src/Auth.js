@@ -2,6 +2,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 import { useEffect, useState } from 'react';
 
+
 const uiConfig = {
     signInOptions: [{
         provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
@@ -50,10 +51,14 @@ export default function Account() {
     let content = null;
     if(!user) {
         content = (
-            <div className="container">
-                <h1>Account</h1>
-                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-            </div>
+            <div>
+                <div className="ml-4">
+                    <h2>Account</h2>
+                </div>
+                <div>
+                    <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+                </div>
+            </div>  
         );
     }
     else {
@@ -61,9 +66,12 @@ export default function Account() {
             <div>
                 {/* insert favorites page view */}
                 {user &&
-                    <div className="container">
-                        <button className="btn btn-dark" onClick={handleSignOut}>
-                            Log Out {user.displayName}
+                    <div>
+                        <div className="ml-4">
+                            <h2>{user.displayName}</h2>
+                        </div>
+                        <button className="btn btn-dark ml-5" onClick={handleSignOut}>
+                            Log Out
                         </button>
                     </div>
                 }

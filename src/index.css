@@ -9,6 +9,11 @@ body {
     margin: 0px;
 }
 
+h2 {
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    color: #4b2e83;
+}
+
 /* Styling for favorites "star" icon. */
 button .favorites {
     padding-right: 1em;
@@ -71,7 +76,7 @@ button .favorites {
     margin-top: 10px;
 }
 
-h2 {
+.tile h2 {
     color: white;
     margin: 10px;
     font-size: 15px;
