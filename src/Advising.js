@@ -1,16 +1,11 @@
-import React, { useEffect, useState, createSliderWithTooltip} from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, FormGroup, Input, Label}  from 'reactstrap';
+import React, { useEffect, useState } from 'react';
+import { Dropdown, DropdownToggle, DropdownMenu, FormGroup, Label}  from 'reactstrap';
 import './index.css';
 import RangeSlider from 'react-bootstrap-range-slider';
 import 'bootstrap/dist/css/bootstrap.css'; // or include from a CDN
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
+import FavModal from './components/Modal.js'
 
-// import 'rc-slider/assets/index.css';
-// import 'rc-tooltip/assets/bootstrap.css';
-// import {Range} from 'rc-slider';
-//const Slider = require('rc-slider');
-//const createSliderWithTooltip = Slider.createSliderWithTooltip;
-// const Range = createSliderWithTooltip(Range);
 
 // The main function handling all the advising page logic
 function AdvisingPage() {
@@ -58,7 +53,7 @@ function AdvisingPage() {
                 <div className="standard-page">
                     <AllColleges data={collegeData}/>
                 </div>
-            </div> 
+            </div>
         </div>
     )
 }
@@ -129,14 +124,14 @@ function Tile(props) {
             </div>);
 }
 
-// Render the dropdown button content which consists of the
-// slider window
+// Render the dropdown button and the favorites list modal content.
 function FavDropDown(props) {
     return(
         <div className='container'>
             <div className='standard-page'>
                 <div className="favAndDropdown">
                     <GetDropdown sliderCallBack={props.sliderCallBack}/>
+                    <FavModal />
                 </div>
             </div>
         </div>
@@ -162,7 +157,7 @@ function GetDropdown(props) {
     // Render the dropdown content
     return (
       <Dropdown direction="down" isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle caret aria-haspopup="true" aria-expanded="false">
+        <DropdownToggle caret aria-expanded="false">
             <i className="fas fa-bars"></i>
         </DropdownToggle>
         <DropdownMenu>
@@ -170,7 +165,7 @@ function GetDropdown(props) {
                 <FormGroup>
                     <Label for="formControlRange">Advisors Available</Label>
                     {/* <Input type="range" name="range" id="formControlRange" min="1" max="20" onInput={changeData}/> */}
-                    <RangeSlider for="formControlRange" defaultValue="1" value={val} onChange={changeData} min="1" max="20" step="1" tooltip="on"/>
+                    <RangeSlider for="formControlRange" value={val} onChange={changeData} min="1" max="20" step="1" tooltip="on"/>
                 </FormGroup>
             </form>
         </DropdownMenu>
