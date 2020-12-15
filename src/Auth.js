@@ -16,7 +16,7 @@ const uiConfig = {
 // account page for user login/signup, saved favorites
 export default function Account() {
     const [errorMessage, setErrorMessage] = useState(undefined);
-    const[user, setUser] = useState(undefined);
+    const[user, setUser] = useState('Hello');
     const [isLoading, setIsLoading] = useState(true);
 
     // auth state event listener

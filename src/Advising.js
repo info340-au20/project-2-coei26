@@ -6,11 +6,13 @@ import 'bootstrap/dist/css/bootstrap.css'; // or include from a CDN
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 import FavModal from './components/Modal.js'
 
-
 // The main function handling all the advising page logic
 function AdvisingPage() {
     // Setting the states
     const [collegeData, setCollegeData] = useState([]);
+    const [favorites, setFavorites] = useState([]);  // Current favorites
+
+    // Set the favorites through Firebase
 
     // Fetch the data and assign states
     useEffect(() => {
@@ -25,6 +27,19 @@ function AdvisingPage() {
             console.log(err);
         })
     }, [])
+
+    // Callback function to handle change in current favorites
+    const handleFavorites = (tileName) => {
+        const newFavorites = favorites.map((item) => {
+            return item;
+        })
+        if (newFavorites.indexOf(tileName) < 0) {
+            newFavorites.push(tileName);
+        } else {
+            newFavorites.splice(newFavorites.indexOf(tileName), 1);
+        }
+        setFavorites(newFavorites);
+    }
 
     // Callback function for dealing with changes in slider window
     const handleChange = (numAvail) => {
@@ -48,10 +63,10 @@ function AdvisingPage() {
 
     return (
         <div>
-            <FavDropDown sliderCallBack={handleChange}/>
+            <FavDropDown sliderCallBack={handleChange} favList={favorites}/>
             <div className="container">
                 <div className="standard-page">
-                    <AllColleges data={collegeData}/>
+                    <AllColleges data={collegeData} favList={favorites} handleFav={handleFavorites} />
                 </div>
             </div>
         </div>
@@ -68,7 +83,7 @@ function AllColleges(props) {
 
     // Get a list of college content
     let mapAllColleges = filteredColleges.map((college) => {
-        return <College key={college.college} college={college} />;
+        return <College key={college.college} college={college} favList={props.favList} handleFav={props.handleFav}/>;
     });
 
     // Return all the college content
@@ -84,7 +99,7 @@ function College(props) {
     return (<section className="college">
                 <div><h1>{college.college}</h1></div>
                 <div className="row">
-                    <AllTiles key={college.college} list={deptArr}/>  
+                    <AllTiles key={college.college} list={deptArr} favList={props.favList} handleFav={props.handleFav}/>  
                 </div>
             </section>);
 }
@@ -100,7 +115,7 @@ function AllTiles(props) {
     // Get a list of tiles and delegate the tile rendering to another
     // component
     let mapAllTiles = list.map((deptInfo) => {
-        return <Tile key={deptInfo.name} deptInfo={deptInfo} />;
+        return <Tile key={deptInfo.name} deptInfo={deptInfo} favList={props.favList} handleFav={props.handleFav}/>;
     })
 
     // Render the list
@@ -114,11 +129,20 @@ function AllTiles(props) {
 // Render a single department tile
 function Tile(props) {
     let deptInfo = props.deptInfo;
+
+    // Handle the change in favorite list based on user input
+    const handleClick = () => {
+        props.handleFav(deptInfo.name);
+    }
+
+    // Fill-unfill the fav icon based on current list
+    const classProperty = (props.favList.indexOf(deptInfo.name) >= 0) ? "fas fa-star" : "far fa-star"; 
+
     return (<div className="tile">
                 <h2>{deptInfo.name}</h2>
                 <div className="other-side">
                     <button type="button">Email</button>
-                    <button type="button" className="favoritesButton" id={deptInfo.name}><i className="far fa-star" aria-label="Add to Favorites" aria-hidden="true"></i></button>
+                    <button type="button" className="favoritesButton" id={deptInfo.name} onClick={handleClick}><i className={classProperty} aria-label="Add to Favorites" aria-hidden="true"></i></button>
                     <button type="button"><i className="fas fa-calendar-alt" aria-label="Schedule Appointment" aria-hidden="true"></i></button>
                 </div>
             </div>);
@@ -131,7 +155,7 @@ function FavDropDown(props) {
             <div className='standard-page'>
                 <div className="favAndDropdown">
                     <GetDropdown sliderCallBack={props.sliderCallBack}/>
-                    <FavModal />
+                    <FavModal list={props.favList}/>
                 </div>
             </div>
         </div>
