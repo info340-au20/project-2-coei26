@@ -4,6 +4,7 @@ import './index.css';
 import RangeSlider from 'react-bootstrap-range-slider';
 import 'bootstrap/dist/css/bootstrap.css'; // or include from a CDN
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
+import FavModal from './components/Modal.js'
 
 
 // The main function handling all the advising page logic
@@ -52,7 +53,7 @@ function AdvisingPage() {
                 <div className="standard-page">
                     <AllColleges data={collegeData}/>
                 </div>
-            </div> 
+            </div>
         </div>
     )
 }
@@ -123,14 +124,14 @@ function Tile(props) {
             </div>);
 }
 
-// Render the dropdown button content which consists of the
-// slider window
+// Render the dropdown button and the favorites list modal content.
 function FavDropDown(props) {
     return(
         <div className='container'>
             <div className='standard-page'>
                 <div className="favAndDropdown">
                     <GetDropdown sliderCallBack={props.sliderCallBack}/>
+                    <FavModal />
                 </div>
             </div>
         </div>
