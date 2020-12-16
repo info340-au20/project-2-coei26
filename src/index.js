@@ -4,7 +4,8 @@ import App from './App';
 import './design.css';
 import firebase from 'firebase';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'firebase/auth'; 
+import 'firebase/auth';
+import 'firebase/database';
 
 
 const firebaseConfig = {

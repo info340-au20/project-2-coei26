@@ -1,12 +1,27 @@
 // import React, { useState, useEffect, WelcomeHeader } from 'react';
 import NavBar from './components/NavBar.js'
 import Footer from './components/Footer.js'
-import { BrowserRouter as Router, Redirect, Route, Switch, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import { LandingPage } from './Landing';
 import firebase from 'firebase';
 import AdvisingPage from './Advising';
-import Account from './Auth';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { useEffect, useState } from 'react';
+import './design.css';
+
+// Firebase UI configuration.
+const uiConfig = {
+    signInOptions: [{
+        provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        requiredDisplayName: true
+    }],
+    credentialHelper: 'none',
+    signInFlow: 'popup',
+    callbacks: { signInSuccessWithAuthResult: () => false, 
+    },
+};
+
+
 // Combine all the logic for Landling, Advising and Navbar components
 // Also passes the data as props to advising page for rendering
 export function App(props) {
@@ -33,41 +48,65 @@ export function App(props) {
         }
     }, []) // run on first load
 
-    // console.log(firebase.database().ref('people'));
     const handleSignOut = () => {
         setErrorMessage(null);
         setLoggedIn(false);
         firebase.auth().signOut()
     }
 
+    if(isLoading) {
+        return(
+            <div className="text-center">
+                <i className="fa fa-spinner fa-spin fa-3x" aria-label="Connecting..."></i>
+            </div>
+        )
+    }
+
     // console.log(user);
     const renderAdvising = (routerProps) => {
-        return <AdvisingPage {...routerProps} handleSave={handleSave} user={user}/>;
+        return <AdvisingPage {...routerProps} user={user}/>;
     }
 
-    const handleSave = () => {
-        if (!loggedIn) {
-            console.log("dfbjbfj");
-            return <Redirect to="/account" render={renderAdvising}/>
-        }
+    let content = null;
+    if(!user) {
+        content = (
+            <div className='signUpPage'>
+                <h2>Sign Up/Log In</h2>
+                <div>
+                    <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+                </div>
+            </div>  
+        );
     }
-
-    const renderAuthentication = (routerProps) => {
-        return <Account {...routerProps} errorMessage={errorMessage} user={user} isLoading={isLoading} handleSignOut={handleSignOut}/>;
+    else {
+        content = (
+            <div>
+                {user &&
+                    <div>
+                        <Router>
+                            <NavBar />
+                            <button className="btn btn-dark logOutBtn" onClick={handleSignOut}>Log Out {user.displayName}</button>
+                                <Switch>
+                                    <Route exact path="/" component={LandingPage} />
+                                    <Route path='/deptadvising' render={renderAdvising} />
+                                    <Route path='/home' component={LandingPage} />
+                                    <Redirect to="/"></Redirect>
+                                </Switch>
+                            <Footer />
+                        </Router>
+                    </div>
+                }
+            </div>
+        )
     }
 
     return (
-        <Router>
-            <NavBar />
-                <Switch>
-                    <Route exact path="/" component={LandingPage} />
-                    <Route path='/deptadvising' render={renderAdvising} />
-                    <Route path='/home' component={LandingPage} />
-                    <Route path='/account' render={renderAuthentication} />
-                    <Redirect to="/"></Redirect>
-                </Switch>
-            <Footer />
-        </Router>
+        <div>
+            {errorMessage &&
+                <p className="alert alert-danger">{errorMessage}</p>
+            }
+            {content}
+        </div>
     );
 }
 
