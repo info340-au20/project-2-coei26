@@ -10,7 +10,7 @@ const FavModal = (props) => {
 
   const favoritesList = props.list.map((item) => {
     return (
-      <li>{item}</li>
+      <ListItem key={item} item={item} />
     );
   })
 
@@ -31,5 +31,7 @@ const FavModal = (props) => {
     </div>
   );
 }
-
+const ListItem = (props) => {
+  return <li>{props.item}</li>;
+}
 export default FavModal;

@@ -48,7 +48,7 @@ function AdvisingPage(props) {
                 }
             })
         } 
-    })
+    }, [])
 
     // Callback function to handle change in current favorites
     const handleFavorites = (tileName) => {
@@ -62,8 +62,6 @@ function AdvisingPage(props) {
         } else {
             newFavs.push(tileName);
         }
-        // Set the state
-        setFavorites(newFavs);
 
         // Push to firebase
         const uid = props.user.uid;
@@ -184,7 +182,7 @@ function FavDropDown(props) {
             <div className='standard-page'>
                 <div className="favAndDropdown">
                     <GetDropdown sliderCallBack={props.sliderCallBack}/>
-                    <FavModal list={props.favList} user={props.user} />
+                    <FavModal key={props.user.uid} list={props.favList} user={props.user} />
                 </div>
             </div>
         </div>
