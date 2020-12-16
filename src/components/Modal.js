@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const FavModal = (props) => {
@@ -6,6 +7,12 @@ const FavModal = (props) => {
 
   const toggle = () =>  {
     setModal(!modal);
+    // console.log("ebhebfej");
+  }
+  const toggleSave = () =>  {
+    setModal(!modal);
+    // console.log("ebhebfej");
+    props.handleSave();
   }
 
   const favoritesList = props.list.map((item) => {
@@ -13,7 +20,7 @@ const FavModal = (props) => {
       <li>{item}</li>
     );
   })
-  
+
   return (
     <div>
       <Button color="info" onClick={toggle}>My Favorites</Button>
@@ -25,7 +32,7 @@ const FavModal = (props) => {
           </ul>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>Save</Button>{' '}
+          <Button color="primary" onClick={toggleSave}>Save</Button>{' '}
           <Button color="secondary" onClick={toggle}>Cancel</Button>
         </ModalFooter>
       </Modal>

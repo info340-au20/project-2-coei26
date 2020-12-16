@@ -14,31 +14,10 @@ const uiConfig = {
 };
 
 // account page for user login/signup, saved favorites
-export default function Account() {
-    const [errorMessage, setErrorMessage] = useState(undefined);
-    const[user, setUser] = useState('Hello');
-    const [isLoading, setIsLoading] = useState(true);
-
-    // auth state event listener
-    useEffect(() => {
-        const authUnregister = firebase.auth().onAuthStateChanged((user) => {
-            if(user) {
-                setUser(user);
-                setIsLoading(false);
-            } else {
-                setUser(null);
-                setIsLoading(false);
-            }
-        })
-        return function cleanup() { // when done loading
-            authUnregister(); // unregister
-        }
-    }, []) // run on first load
-
-    const handleSignOut = () => {
-        setErrorMessage(null);
-        firebase.auth().signOut()
-    }
+export default function Account(props) {
+    const isLoading = props.isLoading;
+    const user = props.user;
+    const errorMessage = props.errorMessage;
 
     if(isLoading) {
         return(
@@ -70,7 +49,7 @@ export default function Account() {
                         <div className="ml-4">
                             <h2>{user.displayName}</h2>
                         </div>
-                        <button className="btn btn-dark ml-5" onClick={handleSignOut}>
+                        <button className="btn btn-dark ml-5" onClick={props.handleSignOut}>
                             Log Out
                         </button>
                     </div>

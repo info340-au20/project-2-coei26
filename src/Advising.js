@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, FormGroup, Label}  from 'reactstrap';
 import './index.css';
+import firebase from 'firebase';
 import RangeSlider from 'react-bootstrap-range-slider';
 import 'bootstrap/dist/css/bootstrap.css'; // or include from a CDN
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 import FavModal from './components/Modal.js'
 
 // The main function handling all the advising page logic
-function AdvisingPage() {
+function AdvisingPage(props) {
     // Setting the states
     const [collegeData, setCollegeData] = useState([]);
     const [favorites, setFavorites] = useState([]);  // Current favorites
@@ -27,18 +28,47 @@ function AdvisingPage() {
             console.log(err);
         })
     }, [])
+    
+
+    // Assign state change
+    useEffect(() => {
+        if (props.user !== undefined) {
+            const uid = props.user.uid;
+            const userFavs = firebase.database().ref(uid+'/favList');
+            userFavs.on('value', (snapshot) =>{
+                const val = snapshot.val();
+                if (val !== null) {
+                    const keys = Object.keys(val);
+                
+                    const favArr = keys.map((item) => {
+                        return val[item];
+                    })
+
+                    setFavorites(favArr);
+                }
+            })
+        } 
+    })
 
     // Callback function to handle change in current favorites
     const handleFavorites = (tileName) => {
-        const newFavorites = favorites.map((item) => {
+
+        const newFavs = favorites.map((item) => {
             return item;
         })
-        if (newFavorites.indexOf(tileName) < 0) {
-            newFavorites.push(tileName);
+
+        if (newFavs.indexOf(tileName) >= 0) {
+            newFavs.splice(newFavs.indexOf(tileName), 1);
         } else {
-            newFavorites.splice(newFavorites.indexOf(tileName), 1);
+            newFavs.push(tileName);
         }
-        setFavorites(newFavorites);
+        // Set the state
+        setFavorites(newFavs);
+
+        // Push to firebase
+        const uid = props.user.uid;
+        const userFavs = firebase.database().ref(uid + '/favList');
+        userFavs.set(newFavs);
     }
 
     // Callback function for dealing with changes in slider window
@@ -60,10 +90,9 @@ function AdvisingPage() {
         })
         setCollegeData(newCollegeData);
     }
-
     return (
         <div>
-            <FavDropDown sliderCallBack={handleChange} favList={favorites}/>
+            <FavDropDown sliderCallBack={handleChange} favList={favorites} handleSave={props.handleSave} user={props.user}/>
             <div className="container">
                 <div className="standard-page">
                     <AllColleges data={collegeData} favList={favorites} handleFav={handleFavorites} />
@@ -155,7 +184,7 @@ function FavDropDown(props) {
             <div className='standard-page'>
                 <div className="favAndDropdown">
                     <GetDropdown sliderCallBack={props.sliderCallBack}/>
-                    <FavModal list={props.favList}/>
+                    <FavModal list={props.favList} user={props.user} handleSave={props.handleSave}/>
                 </div>
             </div>
         </div>
