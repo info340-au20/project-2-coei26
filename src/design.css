@@ -25,9 +25,23 @@ nav {
     text-decoration: none;
 }
 
+.logOutBtn {
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+
+.signUpPage {
+    background-color: #4b2e83;
+}
+
+.signUpPage > h2 {
+    text-align: center;
+    color: white;
+}
+
 @media (max-width: 400px) {
     .name > span {
-        display: none;
+        display: inline-flex;
     }
 }
 

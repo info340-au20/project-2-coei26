@@ -92,7 +92,7 @@ function AdvisingPage(props) {
     }
     return (
         <div>
-            <FavDropDown sliderCallBack={handleChange} favList={favorites} handleSave={props.handleSave} user={props.user}/>
+            <FavDropDown sliderCallBack={handleChange} favList={favorites} user={props.user}/>
             <div className="container">
                 <div className="standard-page">
                     <AllColleges data={collegeData} favList={favorites} handleFav={handleFavorites} />
@@ -184,7 +184,7 @@ function FavDropDown(props) {
             <div className='standard-page'>
                 <div className="favAndDropdown">
                     <GetDropdown sliderCallBack={props.sliderCallBack}/>
-                    <FavModal list={props.favList} user={props.user} handleSave={props.handleSave}/>
+                    <FavModal list={props.favList} user={props.user} />
                 </div>
             </div>
         </div>
@@ -217,7 +217,6 @@ function GetDropdown(props) {
             <form className="px-4 py-3">
                 <FormGroup>
                     <Label for="formControlRange">Advisors Available</Label>
-                    {/* <Input type="range" name="range" id="formControlRange" min="1" max="20" onInput={changeData}/> */}
                     <RangeSlider for="formControlRange" value={val} onChange={changeData} min="1" max="20" step="1" tooltip="on"/>
                 </FormGroup>
             </form>
