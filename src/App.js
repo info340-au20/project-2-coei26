@@ -1,10 +1,10 @@
-// import React, { useState, useEffect, WelcomeHeader } from 'react';
 import NavBar from './components/NavBar.js'
 import Footer from './components/Footer.js'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import { LandingPage } from './Landing';
 import firebase from 'firebase';
 import AdvisingPage from './Advising';
+import AboutPage from './About';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { useEffect, useState } from 'react';
 import './design.css';
@@ -71,6 +71,7 @@ export function App(props) {
     if(!user) {
         content = (
             <div className='signUpPage'>
+                <h1>Welcome to UW Undergraduate Advising!</h1>
                 <h2>Sign Up/Log In</h2>
                 <div>
                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
@@ -85,11 +86,11 @@ export function App(props) {
                     <div>
                         <Router>
                             <NavBar />
-                            <button className="btn btn-dark logOutBtn" onClick={handleSignOut}>Log Out {user.displayName}</button>
+                                <button className="btn btn-dark logOutBtn" onClick={handleSignOut}>Log Out {user.displayName}</button>
                                 <Switch>
                                     <Route exact path="/" component={LandingPage} />
                                     <Route path='/deptadvising' render={renderAdvising} />
-                                    <Route path='/home' component={LandingPage} />
+                                    <Route path='/about' component={AboutPage} />
                                     <Redirect to="/"></Redirect>
                                 </Switch>
                             <Footer />
