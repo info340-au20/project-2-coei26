@@ -1,7 +1,7 @@
 import React from 'react';
 import './about.css'
 
-// Renders the content for the main landing page
+// Render the about page.
 function AboutPage() {
     return (
         <div>
