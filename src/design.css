@@ -30,9 +30,6 @@ nav {
     margin-left: 100px;
 }
 
-/* .signUpPage {
-    background-color: #4b2e83;
-} */
 
 .signUpPage > h1 {
     text-align: center;
@@ -61,7 +58,7 @@ footer a {
 footer p {
     color: white;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 10px;
 }
 
 footer a:hover {
