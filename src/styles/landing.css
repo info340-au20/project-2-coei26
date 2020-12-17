@@ -137,6 +137,10 @@ a.mx-auto {
     .blurb h2 {
         font-size: 20px;
     }
+
+    .landingContainer {
+        padding-top: 20px;
+    }
 }
 
 
