@@ -16,13 +16,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAZuNjkpLbSBbYFom7yhSbsrnURUeFy9Gk",
-    authDomain: "uw-undegraduate-advising.firebaseapp.com",
-    projectId: "uw-undegraduate-advising",
-    storageBucket: "uw-undegraduate-advising.appspot.com",
-    messagingSenderId: "775975209402",
-    appId: "1:775975209402:web:1d79f2cb12612326f2b583",
-    measurementId: "G-L9YEWLPSSK"
+    apiKey: "AIzaSyBcdu86r5WpPOz71ttVmUgQv4dcUrTZ9v0",
+    authDomain: "uw-advising.firebaseapp.com",
+    projectId: "uw-advising",
+    storageBucket: "uw-advising.appspot.com",
+    messagingSenderId: "364310305439",
+    appId: "1:364310305439:web:efd2443660c1c87579e0aa",
+    measurementId: "G-B70SFF0FQ7"
 };
 
 firebase.initializeApp(firebaseConfig);
