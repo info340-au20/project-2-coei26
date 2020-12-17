@@ -1,4 +1,4 @@
-import '../design.css'
+import '../styles/design.css'
 
 // Footer component
 function Footer() {

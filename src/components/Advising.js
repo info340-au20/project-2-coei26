@@ -1,11 +1,17 @@
+/* React and Firebase imports */
 import React, { useEffect, useState } from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, FormGroup, Label}  from 'reactstrap';
-import './index.css';
 import firebase from 'firebase';
+
+/* Components */
+import FavModal from './Modal.js'
+
+/* Styling */
+import { Dropdown, DropdownToggle, DropdownMenu, FormGroup, Label}  from 'reactstrap';
+import '../styles/index.css';
 import RangeSlider from 'react-bootstrap-range-slider';
-import 'bootstrap/dist/css/bootstrap.css'; // or include from a CDN
+import 'bootstrap/dist/css/bootstrap.css'; 
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
-import FavModal from './components/Modal.js'
+
 
 // The main function handling all the advising page logic
 function AdvisingPage(props) {
@@ -48,7 +54,7 @@ function AdvisingPage(props) {
                 }
             })
         } 
-    }, [])
+    }, [props.user])
 
     // Callback function to handle change in current favorites
     const handleFavorites = (tileName) => {
@@ -89,7 +95,7 @@ function AdvisingPage(props) {
         setCollegeData(newCollegeData);
     }
     return (
-        <div>
+        <div className="d-flex row">
             <FavDropDown sliderCallBack={handleChange} favList={favorites} user={props.user}/>
             <div className="container">
                 <div className="standard-page">
@@ -215,7 +221,7 @@ function GetDropdown(props) {
             <form className="px-4 py-3">
                 <FormGroup>
                     <Label for="formControlRange">Advisors Available</Label>
-                    <RangeSlider for="formControlRange" value={val} onChange={changeData} min="1" max="20" step="1" tooltip="on"/>
+                    <RangeSlider for="formControlRange" value={val} onChange={changeData} min={1} max={20} step={1} tooltip="on"/>
                 </FormGroup>
             </form>
         </DropdownMenu>

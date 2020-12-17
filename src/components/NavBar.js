@@ -1,7 +1,10 @@
+/* React imports */
 import React from 'react';
-import '../design.css';
-import {Container,  Navbar,  Nav} from 'react-bootstrap';
 import { Link } from 'react-router-dom'
+
+/* Styling */
+import {Container,  Navbar,  Nav} from 'react-bootstrap';
+import '../styles/design.css';
 
 // Renders the content for NavBar 
 const NavBar = (props) => {

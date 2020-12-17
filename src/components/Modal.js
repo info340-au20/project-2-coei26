@@ -16,7 +16,7 @@ const FavModal = (props) => {
 
   return (
     <div>
-      <Button color="info" onClick={toggle}>My Favorites</Button>
+      <Button outline color="secondary" onClick={toggle}><i className="fa fa-star"></i> Favorites</Button>
       <Modal isOpen={modal} toggle={toggle} className='modalbody'>
         <ModalHeader toggle={toggle}>My Favorites List</ModalHeader>
         <ModalBody>

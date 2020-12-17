@@ -1,13 +1,18 @@
+/* React and Firebase imports */ 
+import { useEffect, useState } from 'react';
+import firebase from 'firebase';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
+/* Components */
 import NavBar from './components/NavBar.js'
 import Footer from './components/Footer.js'
+import AdvisingPage from './components/Advising';
+import AboutPage from './components/About';
+import { LandingPage } from './components/Landing';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
-import { LandingPage } from './Landing';
-import firebase from 'firebase';
-import AdvisingPage from './Advising';
-import AboutPage from './About';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import { useEffect, useState } from 'react';
-import './design.css';
+
+/* Styling */
+import './styles/design.css';
 
 // Firebase UI configuration.
 const uiConfig = {
@@ -28,7 +33,6 @@ export function App(props) {
     const [errorMessage, setErrorMessage] = useState(undefined);
     const[user, setUser] = useState(undefined);
     const [isLoading, setIsLoading] = useState(true);
-    const [loggedIn, setLoggedIn] = useState(false);
 
     // auth state event listener
     useEffect(() => {
@@ -36,11 +40,10 @@ export function App(props) {
             if(user) {
                 setUser(user);
                 setIsLoading(false);
-                setLoggedIn(true);
+
             } else {
                 setUser(null);
                 setIsLoading(false);
-                setLoggedIn(false);
             }
         })
         return function cleanup() { // when done loading
@@ -50,19 +53,17 @@ export function App(props) {
 
     const handleSignOut = () => {
         setErrorMessage(null);
-        setLoggedIn(false);
         firebase.auth().signOut()
     }
 
     if(isLoading) {
         return(
-            <div className="text-center">
+            <div className="text-center" style={{position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>
                 <i className="fa fa-spinner fa-spin fa-3x" aria-label="Connecting..."></i>
             </div>
         )
     }
 
-    // console.log(user);
     const renderAdvising = (routerProps) => {
         return <AdvisingPage {...routerProps} user={user}/>;
     }
@@ -70,10 +71,10 @@ export function App(props) {
     let content = null;
     if(!user) {
         content = (
-            <div className='signUpPage'>
-                <h1>Welcome to UW Undergraduate Advising!</h1>
-                <h2>Sign Up/Log In</h2>
-                <div>
+            <div className="signUpPage">
+                <h1><i className="fa fa-star"></i> Welcome to UW Undergraduate Advising! <i className="fa fa-star"></i> </h1>
+                <h2>Sign Up or Log In Here:</h2>
+                <div className="popup">
                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
                 </div>
             </div>  
@@ -86,7 +87,12 @@ export function App(props) {
                     <div>
                         <Router>
                             <NavBar />
-                                <button className="btn btn-dark logOutBtn" onClick={handleSignOut}>Log Out {user.displayName}</button>
+                            <div className="logOutContainer d-flex float-right">
+                                <div className="float-right ">
+                                    <h2 className="m-2">{user.displayName}</h2>
+                                    <button className="btn btn-dark logOutBtn" onClick={handleSignOut}>Log Out</button>
+                                </div>
+                            </div>
                                 <Switch>
                                     <Route exact path="/" component={LandingPage} />
                                     <Route path='/deptadvising' render={renderAdvising} />

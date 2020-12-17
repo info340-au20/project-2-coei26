@@ -1,11 +1,11 @@
 import React from 'react';
-import './landing.css';
+import '../styles/landing.css';
 
 // Renders the content for the main landing page
 export function LandingPage() {
     return (
-        <div>
-            <body className="body">
+        <div className="landingContainer">
+            
                 <section className="greeting">
                     <div className="intro">
                         <h1>Questions?</h1>
@@ -26,7 +26,7 @@ export function LandingPage() {
                         <AdvisorSpotlightContent />
                     </div>
                 </section>
-            </body>
+        
         </div>
 
     )

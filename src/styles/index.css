@@ -9,26 +9,15 @@ body {
     margin: 0px;
 }
 
+.standard-page {
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
 h2 {
     font-family: 'Open Sans', Helvetica, sans-serif;
     color: #4b2e83;
 }
-
-/* Styling for favorites "star" icon. */
-button .favorites {
-    padding-right: 1em;
-    padding-left: 1.5em;
-    padding-top: 10em;
-    padding-bottom: 9.5em;
-    background-size: 40px;
-    background-position: right;
-    background-repeat: no-repeat;
-}
-
-.favoritesIcon {
-    padding-top: 10px;
-}
-
 
 .form-group > label {
     font-weight: bold;
@@ -38,7 +27,6 @@ button .favorites {
 .dropdown {
     margin-bottom: 10px;
     margin-right: 10px;
-    
 }
 
 /* Allows all selected list elements to be inline. */
@@ -66,7 +54,6 @@ button .favorites {
 .form-group {
     font-family: 'Open Sans', 'Helvetica', sans-serif;
 }
-
 
 /* All h1 in college class. */
 .college h1 {
@@ -161,12 +148,20 @@ button .favorites {
     color: #4b2e83;
 }
 
-
 /* Styling for media screens max width 320 px */
 @media (min-width: 320px) and (max-width: 419px) {
     h2 {
         font-size: 12px;
     }
+
+    .standard-page {
+        margin-left: 25px;
+    }
+
+    .favAndDropdown {
+        display: block;
+    }
+    
 }
 
 @media (min-width: 420px) and (max-width: 597px){
