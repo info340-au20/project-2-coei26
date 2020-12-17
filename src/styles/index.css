@@ -1,0 +1,258 @@
+html, body {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    margin: 0px;
+}
+
+.standard-page {
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    color: #4b2e83;
+}
+
+.form-group > label {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.dropdown {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+/* Allows all selected list elements to be inline. */
+.favAndDropdown {
+    display: inline-flex;
+}
+
+.supportText {
+    display: inline-flex;
+    font-size: 15px;
+}
+
+/* Container for all tiles. */
+.container {
+    margin-bottom: 10px;
+}
+
+/* label for advisor availability form */
+.form-label {
+    font-family: 'Encode Sans', Helvetica, sans-serif;
+    color: black;
+    width: 300px;
+}
+
+.form-group {
+    font-family: 'Open Sans', 'Helvetica', sans-serif;
+}
+
+/* All h1 in college class. */
+.college h1 {
+    color:#4b2e83;
+    font-family: 'Encode Sans', Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.tile h2 {
+    color: white;
+    margin: 10px;
+    font-size: 15px;
+}
+
+/* Rows in each college/department. */
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 5px;
+}
+
+
+/* Styling for each tile. */
+.tile {
+    display: flex;
+    flex: 100%;
+    width: 200px;
+    height: 150px;
+    float: left;
+    margin: 5px;
+    padding: 10px;
+    background: #4b2e83;
+}
+
+.other-side button {
+    width: 90%;
+    border: none;
+    margin-top: 4px;
+}
+
+.other-side {
+    display: none;
+    text-align: center;
+}
+
+
+.tile:hover .other-side {
+    display: inline;
+}
+
+
+.tile:hover h2 {
+    display: none;
+}
+
+.tile:hover, .tile:active {
+    background: #b7a57a;
+}
+
+
+
+/* Buttons styling for each of the tiles. */
+.tile button {
+    background-color: #4b2e83;
+    color: white;
+    padding: 5px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+
+.tile a {
+    text-transform: lowercase;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+
+.tile p {
+    color: white;
+} 
+
+
+.tile a:hover {
+    color: #4b2e83;
+}
+
+/* Styling for media screens max width 320 px */
+@media (min-width: 320px) and (max-width: 419px) {
+    h2 {
+        font-size: 12px;
+    }
+
+    .standard-page {
+        margin-left: 25px;
+    }
+
+    .favAndDropdown {
+        display: block;
+    }
+    
+}
+
+@media (min-width: 420px) and (max-width: 597px){
+    .navbar .navbar-brand {
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 598px) {
+    .navbar .navbar-brand {
+        font-size: 17px;
+        margin-left: 10px;
+    }
+
+    .tile h2 {
+        font-size: 20px;
+    }
+}
+
+ @media (min-width: 598px) {
+    .navbar .navbar-brand {
+        font-size: 25px;
+        margin-left: 25px;
+    }
+
+    .tile h2 {
+        font-size: 20px;
+    }
+
+    .supportText {
+        font-size: 20px;
+    }
+    
+}
+
+/* Styling for media screens 768 px or wider. */
+@media (min-width: 768px) {
+    .navbar li .navbar-brand {
+        font-size: 2rem;
+    }
+
+    .container h1 {
+        font-size: 2rem; 
+    }
+
+    .tile {
+        flex: 1;
+        height: 200px;
+    }
+
+    .supportText {
+        font-size: 20px;
+    }
+    
+}
+
+/* Styling for media screens 992px or wider. */
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}
+
+/*Styling for media queries 1500px or wider. */
+@media (min-width: 1500px) {
+    .navbar li .navbar-brand {
+        font-size: 3rem;
+    }
+
+    form {
+        width: 70%;
+        margin-left: 15%;
+    }
+
+    .container {
+        margin-top: 8px;
+    }
+
+    .container h1 {
+        font-size: 2.25rem;
+    }
+
+    .container h2 {
+        font-size: 1.5rem;
+    }
+
+    .tile {
+        width: 250px;
+        height: 250px;
+    }
+
+}
+

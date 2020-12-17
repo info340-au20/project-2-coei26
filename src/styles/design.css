@@ -1,0 +1,141 @@
+/* Include custom colors and sizing */
+
+/* NavBar styling */
+nav {
+    background-image: linear-gradient(150deg,#4b2e83, #b7a57a);
+    margin-bottom: 1.5em; 
+    padding: 1em;  
+    font-family: 'Encode Sans', 'Helvetica', sans-serif;
+}
+
+.tabs {
+    font-family: 'Open Sans', 'Helvetica', 'sans-serif';
+    color: white;
+    margin-bottom: 100px;
+}
+
+.mr-4 {
+    color: white;
+    text-decoration: none;
+    display: inline;
+}
+
+.mr-4:hover {
+    color: #b7a57a;
+    text-decoration: none;
+}
+
+/* Initial sign up page styling */
+.signUpPage > h1 {
+    text-align: center;
+    color: #4b2e83;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-family: 'Encode Sans', 'Helvetica', sans-serif;
+}
+
+.signUpPage > h2 {
+    text-align: center;
+    color: #4b2e83;
+    margin-bottom: 20px;
+    font-style: bold;
+    font-family: 'Open Sans', 'Helvetica', 'sans-serif';
+}
+
+.popup {
+    margin-top: 100px;
+}
+
+/* Logout button section styling */
+
+.logOutContainer {
+    margin-right: 60px;
+}
+
+.logOutContainer h2 {
+    font-size: 22px;
+}
+
+.logOutBtn {
+    display: absolute;
+}
+
+
+/* Footer styling */
+footer a {
+    color: white;
+}
+
+footer p {
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+}
+
+footer a:hover {
+    color: #b7a57a;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    background-color: black;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 1.9rem;
+}
+
+@media (max-width: 400px) {
+    .logOutContainer h2 {
+        font-size: 15px;
+    }
+
+    .logOutContainer button {
+        float: right;
+        position: absolute;
+    }
+    
+    .navbar .name > span {
+        display: none;
+    }
+}
+
+@media (max-width: 598px) {
+    .logOutContainer button {
+        float: right;
+        position: absolute;
+    }
+
+    .logOutContainer h2 {
+        font-size: 15px;
+    }
+
+    footer p, a {
+        font-size: 15px;
+    }
+
+    .signUpPage i {
+        display: none;
+    }
+}
+
+@media (min-width: 598px) {
+    footer p, a {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 768px) {
+    footer p, a {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1500px) {
+    footer p, a {
+        font-size: 20px;
+    }
+}
+
+
