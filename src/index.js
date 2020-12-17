@@ -1,11 +1,18 @@
+/* React and Firebase imports */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import './design.css';
+
 import firebase from 'firebase';
-import 'bootstrap/dist/css/bootstrap.css';
 import 'firebase/auth';
 import 'firebase/database';
+
+/* Components */
+import App from './App';
+
+/* Styling */
+import './styles/design.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 
 const firebaseConfig = {

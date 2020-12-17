@@ -2,12 +2,15 @@
 Styling for the "About" page.
 */
 
+.aboutContainer {
+    padding: 50px;
+}
 .aboutTitle {
     font-size: 30px;
     color: #4b2e83;
     font-family: 'Encode Sans', Helvetica, sans-serif;
     font-weight: 900;
-    margin-left: 1em;
+    margin-left: 0.5em;
     margin-right: 1em;
     margin-bottom: 40px;
 }
