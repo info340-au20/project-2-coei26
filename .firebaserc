@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "uw-undergraduate-advising"
+    "default": "uw-undergraduate-advising",
+    "staging": "uw-undegraduate-advising",
+    "production": "uw-undegraduate-advising"
   }
 }
